@@ -32,9 +32,14 @@ html, body {
 }
 
 .bla {
-    margin-top: 7%;
-    margin-left: 15%;
-    margin-right: 15%;
-    width: 70%;
+    padding-top: 10%;
+    width: 90%;
     height: 500px;
+}
+
+.bla img{
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
 }

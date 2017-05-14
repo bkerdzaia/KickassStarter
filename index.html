@@ -5,20 +5,30 @@
     <link rel="stylesheet" href="./css/basic.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        .mySlides {display:none}
+    </style>
 </head>
 
 
 <body>
     <div w3-include-html="./menu/upper_menu.html"></div>
 
-    <div class="w3-content w3-display-container bla">
-        <img class="mySlides" src="./images/inventors1.jpg">
-        <img class="mySlides" src="img_lights.jpg" style="width:100%">
-        <img class="mySlides" src="img_mountains.jpg" style="width:100%">
-        <img class="mySlides" src="img_forest.jpg" style="width:100%">
+    <div class="w3-content bla" style="max-width:800px">
+        <img class="mySlides" src="./images/imgres.jpg" style="width:100%">
+        <img class="mySlides" src="./images/imgres.jpg" style="width:100%">
+        <img class="mySlides" src="./images/inventors1.jpg" style="width:100%">
+    </div>
 
-        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    <div class="w3-center">
+        <div class="w3-section">
+            <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">< Prev</button>
+            <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ></button>
+        </div>
+        <button class="w3-button demo" onclick="currentDiv(1)">1</button>
+        <button class="w3-button demo" onclick="currentDiv(2)">2</button>
+        <button class="w3-button demo" onclick="currentDiv(3)">3</button>
     </div>
 
     <script>
@@ -29,15 +39,24 @@
             showDivs(slideIndex += n);
         }
 
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
         function showDivs(n) {
             var i;
             var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
             if (n > x.length) {slideIndex = 1}
             if (n < 1) {slideIndex = x.length}
             for (i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
             }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-purple", "");
+            }
             x[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " w3-purple";
         }
     </script>
 
@@ -47,10 +66,3 @@
 </body>
 
 </html>
-
-
-<!--
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->
