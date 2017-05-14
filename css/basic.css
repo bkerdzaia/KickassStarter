@@ -1,0 +1,40 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#umenu {
+    background: rebeccapurple;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: auto;
+}
+
+#umenu a {
+    color: white;
+    font-weight: bold;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+#umenu a img {
+    vertical-align: middle;
+    color: white;
+    font-weight: bold;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:20%;
+    height:auto;
+}
+
+.bla {
+    margin-top: 7%;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    height: 500px;
+}
