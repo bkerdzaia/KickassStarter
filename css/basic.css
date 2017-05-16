@@ -5,7 +5,7 @@ html, body {
 }
 
 #umenu {
-    background: rebeccapurple;
+    background: purple;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -42,4 +42,24 @@ html, body {
     margin: 0 auto;
     width: 70%;
     height: 100%;
+}
+
+.border {
+    background: purple;
+    width: 80%;
+    height: 8px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mfunded {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.mfunded a {
+    border: 10px solid;
+    border-color: #970001;
 }
