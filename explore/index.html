@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Explore</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+
+        
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/checkbox.css">
+        
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+        <link rel="stylesheet" href="../css/basic.css">
+        <link rel="stylesheet" href="../css/explore.css">
+    </head>
+
+    <body>
+
+        <div w3-include-html="../menu/upper_menu.html" style="height:5em;"></div>
+
+        <div class="search-container">
+            <h3>Search product</h3>
+            <form>
+                <input type="text" name="search" id="search" placeholder="Search..." >
+            </form>
+        </div>
+        
+
+        <div class="container">
+        
+            <div class="left">
+                <div id="list-tag">
+                    <ul>
+                        <li><a href="">Popular</a></li>
+                        <li><a href="">Most Funded</a></li>
+                        <li><a href="">Ending soon</a></li>
+                        <li><a href="">Just Launched</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="center">
+                <div id="content">
+                    result content text
+                </div>
+            </div>
+            
+            <div class="right">
+                <div id="category">
+                    <h2>Category</h2>
+                    <div class="checkbox checkbox-success">
+                        <input type="checkbox" id="art">
+                        <label for="art">Art</label>
+                    </div>
+                    <div class="checkbox checkbox-success">
+                        <input id="food" type="checkbox">
+                        <label for="food">Food</label>
+                    </div>
+                    <div class="checkbox checkbox-success">
+                        <input id="tech" type="checkbox">
+                        <label for="tech">Tech</label>
+                    </div>
+                    <div class="checkbox checkbox-success">
+                        <input id="finance" type="checkbox">
+                        <label for="finance">Finance</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            
+
+
+        <script>
+            w3.includeHTML();
+        </script>
+
+    </body>
+
+</html>
