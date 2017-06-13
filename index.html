@@ -1,76 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>KickAssStarter</title>
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
-    <link rel="stylesheet" href="./css/basic.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script>
+            $(function(){
+                $("#upperMenu").load("./menu/upper_menu.html");
+                $("#footerMenu").load("./menu/footer.html");
+            });
+        </script>
+        <title>KickAssStarter</title>
+        <link rel="stylesheet" href="./css/basic.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        .mySlides {display:none}
-    </style>
-</head>
+        <style>
+            .mySlides {display:none}
+        </style>
+    </head>
 
+    <body>
+        <!--upper menu goes herreeeee-->
+        <div id="upperMenu"></div>
 
-<body>
-    <div w3-include-html="./menu/upper_menu.html"></div>
-
-    <div class="w3-content bla" style="max-width:800px">
-        <img class="mySlides" src="./images/sl1.jpg" style="width:100%">
-        <img class="mySlides" src="./images/sl2.jpg" style="width:100%">
-        <img class="mySlides" src="./images/sl3.jpg" style="width:100%">
-    </div>
-
-    <div class="w3-center">
-        <div class="w3-section">
-            <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">< Prev</button>
-            <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ></button>
+        <div class="w3-content bla" style="max-width:800px">
+            <img class="mySlides" src="./images/sl1.jpg" style="width:100%">
+            <img class="mySlides" src="./images/sl2.jpg" style="width:100%">
+            <img class="mySlides" src="./images/sl3.jpg" style="width:100%">
         </div>
-        <button class="w3-button demo" onclick="currentDiv(1)">1</button>
-        <button class="w3-button demo" onclick="currentDiv(2)">2</button>
-        <button class="w3-button demo" onclick="currentDiv(3)">3</button>
-    </div>
 
-    <div class="border"></div>
+        <div class="w3-center">
+            <div class="w3-section">
+                <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">< Prev</button>
+                <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ></button>
+            </div>
+            <button class="w3-button demo" onclick="currentDiv(1)">1</button>
+            <button class="w3-button demo" onclick="currentDiv(2)">2</button>
+            <button class="w3-button demo" onclick="currentDiv(3)">3</button>
+        </div>
 
-    <div class="mfunded">
-        <a><h3>Invested & Started Businesses</h3></a>
-        <a><img src="./images/proj1.jpg"></a>
-    </div>
+        <div class="border"></div>
 
-    <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
+        <div class="mfunded">
+            <a><h3>Invested & Started Businesses</h3></a>
+            <a>
+                <img src="./images/proj1.jpg" style="float:left">
+            </a>
+            <div>
+                <h3>Project Description & Title & ...</h3>
+                <p>This SHit is project description</p>
+            </div>
+        </div>
 
-        function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
+        <div class="border" style="float: left"></div>
 
-        function currentDiv(n) {
-            showDivs(slideIndex = n);
-        }
 
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            if (n > x.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = x.length}
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
             }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" w3-purple", "");
-            }
-            x[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " w3-purple";
-        }
-    </script>
 
-    <script>
-        w3.includeHTML();
-    </script>
-</body>
+            function currentDiv(n) {
+                showDivs(slideIndex = n);
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                if (n > x.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = x.length}
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" w3-purple", "");
+                }
+                x[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " w3-purple";
+            }
+        </script>
+
+        <!--footer menu goes herreeeee-->
+        <div id="footerMenu"></div>
+    </body>
 
 </html>
