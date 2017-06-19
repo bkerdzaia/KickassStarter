@@ -4,7 +4,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script>
             $(function(){
                 $("#upperMenu").load("./menu/upper_menu.html");
-                $("#footerMenu").load("./menu/footer.html");
+                $("#footerMenu").load("./menu/footer_menu.html");
             });
         </script>
         <title>Explore</title>
@@ -17,17 +17,21 @@
         
         <link rel="stylesheet" href="./css/explore.css">
         <link rel="stylesheet" href="./css/basic.css">
+        
+        <script>
+            function scrollTo(id) {
+                document.body.scrollTop = document.getElementById(id).offsetTop;
+            }
+        </script>
     </head>
 
     <body>
         <!--upper menu goes herreeeee-->
-        <div id="upperMenu"></div>
-
-        <div w3-include-html="./menu/upper_menu.html" style="height:5em;"></div>
+        <div id="upperMenu" style="height:55px;"></div>
 
         <div class="search-container">
             <form>
-                <input type="text" name="search" id="search" placeholder="Search Project..." >
+                <input type="text" name="search" id="search" placeholder="Search Project..." onkeypress="scrollTo('content_list')" >
             </form>
         </div>
         
@@ -35,42 +39,49 @@
         <div class="container">
         
             <div class="left">
-                <div id="list-tag">
-                    <ul>
-                        <li><a href="">Popular</a></li>
-                        <li><a href="">Most Funded</a></li>
-                        <li><a href="">Ending soon</a></li>
-                        <li><a href="">Just Launched</a></li>
-                    </ul>
-                </div>
             </div>
             
             <div class="center">
+                
+                <div id="search_filters" class="equal_height_container">
+                    <div id="list-tag" class="column">
+                        <ul>
+                            <li><a href="">Popular</a></li>
+                            <li><a href="">Most Funded</a></li>
+                            <li><a href="">Ending soon</a></li>
+                            <li><a href="">Just Launched</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="category" class="column">
+                        <h2>Category</h2>
+                        <div>
+                            <input type="checkbox" id="art">
+                            <label for="art">Art</label>
+                        </div>
+                        <div>
+                            <input id="food" type="checkbox">
+                            <label for="food">Food</label>
+                        </div>
+                        <div>
+                            <input id="tech" type="checkbox">
+                            <label for="tech">Tech</label>
+                        </div>
+                        <div>
+                            <input id="finance" type="checkbox">
+                            <label for="finance">Finance</label>
+                        </div>
+                    </div>                             
+                </div>
+                
+                
                 <div id="content">
+                    <div id="content_list"></div>
                     project results...
                 </div>
             </div>
             
             <div class="right">
-                <div id="category">
-                    <h2>Category</h2>
-                    <div class="checkbox checkbox-success">
-                        <input type="checkbox" id="art">
-                        <label for="art">Art</label>
-                    </div>
-                    <div class="checkbox checkbox-success">
-                        <input id="food" type="checkbox">
-                        <label for="food">Food</label>
-                    </div>
-                    <div class="checkbox checkbox-success">
-                        <input id="tech" type="checkbox">
-                        <label for="tech">Tech</label>
-                    </div>
-                    <div class="checkbox checkbox-success">
-                        <input id="finance" type="checkbox">
-                        <label for="finance">Finance</label>
-                    </div>
-                </div>
             </div>
         </div>
 

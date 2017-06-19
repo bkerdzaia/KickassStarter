@@ -1,8 +1,15 @@
 
 .search-container {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0 auto;    
+    min-height: 70px;
+    left: 0;
+    right: 0;
     text-align: center;
+    background-color: white;
+    position: fixed;
+    z-index: 300;
+    margin-top: -1em;
 }
 
 #search:-webkit-autofill {
@@ -74,12 +81,12 @@
 }
 
 #category {
-    float: left;
-    position: relative;
     padding: 5px 20px;
     background-color: purple;
     color: white;
     font-size: 1.3em;
+    border-left: 1px solid black;
+    padding-left: 2em;
 }
 
 input {
@@ -98,11 +105,13 @@ input {
     padding: 30px;
     margin-left: auto;
     margin-right: auto;
+    clear:both;
+    margin-top:1em;
 }
 
 .container {
     width: 100%;
-    top: 1em;
+    top: 5em;
     position: relative;
 }
 
@@ -110,16 +119,27 @@ input {
     float: left;
     width: 20%;
     position: relative;
+    min-height: 1em;
 }
 
 .center {
     float: left;
     width: 60%;
     position: relative;
+    min-height: 1em;
 }
 
 .right {
     float: left;
     width: 20%;
     position: relative;
+    min-height: 1em;
+}
+
+.column {
+    flex: 1;
+}
+
+.equal_height_container {
+    display: flex;
 }

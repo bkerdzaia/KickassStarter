@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>profile</title>
+        
+        <style>
+            .image-container {
+                width: 100px;
+                height: 100px;
+            }
+            .image-container > img {
+                width: 100%;
+                height: 100%;
+                border: 2px solid #dedede;
+                border-radius: 15px;
+                background: #fff;
+                padding: 7px;
+            }
+        </style>
+        <script>
+        
+            function drop(ev) {
+                ev.stopPropagation();
+                ev.preventDefault();
+                var files = ev.dataTransfer.files;
+                if (files.length > 0) {
+                    var file = files[0];
+                    if (file.type.match(/image.*/)) {
+                        var reader = new FileReader();
+                        reader.onload = function(e2) {
+                            var img = document.createElement('img');
+                            img.src= e2.target.result;
+                            document.getElementById("imageDrop").innerHTML = "<img src=\"" +e2.target.result+"\">";
+                        }
+
+                        reader.readAsDataURL(file); 
+                    }
+                } else {
+                    var imageUrl = ev.dataTransfer.getData('text/html');
+                    var rex = /src="?([^"\s]+)"?\s*/;
+                    var url = rex.exec(imageUrl);
+                    document.getElementById("imageDrop").innerHTML = "<img src=\"" +url[1]+"\">";
+                }
+
+            }
+            
+        </script>
+    </head>
+    
+    <body>
+        <div id="imageDrop" class="image-container" ondrop="drop(event)" ondragover="return false">
+            <img src="images/avatar.jpg" alt="avatar">
+        </div>
+    </body>
+</html>
