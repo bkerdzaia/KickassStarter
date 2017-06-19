@@ -32,17 +32,24 @@ html, body {
     height:auto;
 }
 
-.bla {
+.picSliderFrame .picSFImgs {
+    max-width:800px;
+    margin: 0px auto;
     padding-top: 8%;
     width: 90%;
     height: 500px;
 }
 
-.bla img{
+.picSliderFrame div img{
     display: block;
     margin: 0 auto;
-    width: 70%;
     height: 100%;
+    width:100%
+}
+
+.picSliderFrame button{
+    display: table;
+    margin: 0 auto;
 }
 
 .border {
