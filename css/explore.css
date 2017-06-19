@@ -5,6 +5,17 @@
     text-align: center;
 }
 
+#search:-webkit-autofill {
+    font-family: serif, monospace;
+    font-size: 1.5em;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 5px 10px 5px 30px;
+    background-color: purple;
+    -webkit-text-fill-color: white;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 #search {
     width: 40%;
     -webkit-transition: width 0.4s ease-in-out;
@@ -14,7 +25,7 @@
     border: 2px solid rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     padding: 5px 10px 5px 30px;
-    background-image: url("/images/search.svg");
+    background-image: url("../images/search.svg");
     background-repeat: no-repeat;
     background-position: 4px center;
     background-color: purple;
@@ -66,7 +77,6 @@
     float: left;
     position: relative;
     padding: 5px 20px;
-/*    margin: 20px 10px;*/
     background-color: purple;
     color: white;
     font-size: 1.3em;
