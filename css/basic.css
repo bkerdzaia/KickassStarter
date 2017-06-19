@@ -47,10 +47,10 @@ html, body {
 
 .border {
     background: purple;
-    width: 80%;
-    height: 8px;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 84%;
+    height: 4px;
+    margin-left: 8%;
+    margin-right: 8%;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -60,7 +60,20 @@ html, body {
     margin-right: 10%;
 }
 
-.mfunded a {
-    border: 10px solid;
-    border-color: #970001;
+.mfunded a img {
+    border: 8px solid;
+    border-color: purple;
+}
+
+.mfunded div {
+    margin-left: 35%;
+}
+
+#footer {
+    background: purple;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+
 }
