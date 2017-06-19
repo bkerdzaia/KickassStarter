@@ -1,6 +1,6 @@
 
 //when facebook log in is pressed we execute this one
-/*window.fbAsyncInit = function() {
+window.fbAsyncInit = function() {
 	FB.init({
 		appId : '1248881405129739',
 		xfbml : true,
@@ -17,7 +17,7 @@
 
 		}
 	});
-};*/
+};
 
 (function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
@@ -46,8 +46,7 @@ function login() {
 
 function getInfo() {
 	console.log('Welcome!  Fetching your information.... ');
-	FB
-			.api(
+	FB.api(
 					'/me?fields=name, email, id, picture.width(150).height(150)',
 					'GET',
 					function(response) {
@@ -68,7 +67,7 @@ function getInfo() {
 						document.getElementById('fpassword').value = response.id;
 						document.getElementById('femail').value = response.email;
 						document.getElementById('fphoto').value = response.picture.data.url;
-						
+
 						document.getElementById('myForm').submit();
 
 						// alert(hometown);
