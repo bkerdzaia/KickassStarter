@@ -20,20 +20,20 @@
         <!--upper menu goes herreeeee-->
         <div id="upperMenu"></div>
 
-        <div class="w3-content bla" style="max-width:800px">
-            <img class="mySlides" src="./images/sl1.jpg" style="width:100%">
-            <img class="mySlides" src="./images/sl2.jpg" style="width:100%">
-            <img class="mySlides" src="./images/sl3.jpg" style="width:100%">
-        </div>
-
-        <div class="w3-center">
-            <div class="w3-section">
-                <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">< Prev</button>
-                <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ></button>
+        <div class="picSliderFrame">
+            <div class = "picSFImgs">
+                <img class="mySlides" src="./images/sl3.jpg">
+                <img class="mySlides" src="./images/sl1.jpg">
+                <img class="mySlides" src="./images/sl2.jpg">
             </div>
-            <button class="w3-button demo" onclick="currentDiv(1)">1</button>
-            <button class="w3-button demo" onclick="currentDiv(2)">2</button>
-            <button class="w3-button demo" onclick="currentDiv(3)">3</button>
+
+            <div>
+                <button onclick="plusDivs(-1)">< Prev</button>
+                <button onclick="plusDivs(1)">Next ></button>
+            </div>
+            <button onclick="currentDiv(1)">1</button>
+            <button onclick="currentDiv(2)">2</button>
+            <button onclick="currentDiv(3)">3</button>
         </div>
 
         <div class="border"></div>
