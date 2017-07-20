@@ -20,14 +20,14 @@ var userSchema = Schema({
 var User = mongoose.model('User', userSchema);
 
 var bla = new User({
-    username: 'badura',
+    username: 'baduraaa',
     password: '123456',
     email: 'badura@1.com',
     photo: 'badura.jpg'
 
 });
 
-console.log(bla.username);
+console.log(bla);
 module.exports = User;
 
 

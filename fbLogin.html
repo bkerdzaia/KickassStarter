@@ -1,69 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script>
-    $(function(){
-        $("#upperMenu").load("./menu/upper_menu.html");
-        $("#footerMenu").load("./menu/footer.html");
-    });
-</script>
-
     <meta charset="UTF-8">
     <title>Log In</title>
     <link rel="stylesheet" href="./css/basic.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="css/login_signup.css">
-
-    <script src="./scripts/facebook.js"></script>
-
 </head>
 <body>
-<!--upper menu goes herreeeee-->
-<div id="upperMenu"></div>
+    <!--upper menu goes herreeeee-->
+    <div id="upperMenu"></div>
 
-<div id="wrapper">
-    <div class="join">Log In</div>
-    <div class="lock"></div>
-    <div class="clr"></div>
-    <div class="login-options">Choose one of the following log in
-        methods.</div>
-
-
-    <form action="TO DO !!!" method="get" name="register" id="myForm">
-        <input name="fusername" type="hidden" id="fusername" />
-        <input name="fpassword" type="hidden" id="fpassword" />
-        <input name="femail" type="hidden" id="femail" />
-        <input name="fphoto" type="hidden" id="fphoto" />
-        <a id = "xren" class="facebook" href="" onclick="bla">Login with Facebook</a>
-    </form>
+    <div id="wrapper">
+        <div class="join">Log In</div>
+        <div class="lock"></div>
+        <div class="clr"></div>
+        <div class="login-options">Choose one of the following log in
+            methods.</div>
 
 
-    <div class="clr">
-        <hr />
-    </div>
-    <div class="mail-text">Or log in using your email address.</div>
-    <div class="forms">
-        <form action="TO DO !!!" method="post" name="register">
-            <input name="email" type="text"
-                   placeholder="Enter your email address..." size="70"
-                   id="mail" required />
-            <input name="password" type="password"
-                   placeholder="Enter a password..."
-                   size="70" id="password" required />
-
-            <button class="log-in-acc">Log In</button>
-
-            <div align="right" id="toCreate">
-                <a class="mail-text" href="signup.html">Create new
-                    Account</a>
-            </div>
+        <form action="" method="get" name="register" id="myForm">
+            <input name="fusername" type="hidden" id="fusername" />
+            <input name="fpassword" type="hidden" id="fpassword" />
+            <input name="femail" type="hidden" id="femail" />
+            <input name="fphoto" type="hidden" id="fphoto" />
+            <a id = "xren" class="facebook" href="" onclick="">Login with Facebook</a>
         </form>
-    </div>
-</div>
 
-<!--footer menu goes herreeeee-->
-<div id="footerMenu"></div>
+
+        <div class="clr">
+            <hr />
+        </div>
+        <div class="mail-text">Or log in using your email address.</div>
+        <div class="forms">
+            <form action="" method="post" name="register">
+                <input name="email" type="text"
+                       placeholder="Enter your email address..." size="70"
+                       id="mail" required />
+                <input name="password" type="password"
+                       placeholder="Enter a password..."
+                       size="70" id="password" required />
+
+                <button class="log-in-acc">Log In</button>
+
+                <div align="right" id="toCreate">
+                    <a class="mail-text" href="signup.html">Create new
+                        Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--footer menu goes herreeeee-->
+    <div id="footerMenu"></div>
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./scripts/facebook.js"></script>
+    <script src="scripts/DBconnection.js"></script>
+    <script>
+        $(function(){
+            $("#upperMenu").load("./menu/upper_menu.html");
+            $("#footerMenu").load("./menu/footer.html");
+        });
+    </script>
 </html>
