@@ -1,7 +1,7 @@
-
 var mongoose = require('mongoose');
 
-var conn = mongoose.connect('mongodb://localhost/Startups', {
+
+mongoose.connect('mongodb://localhost/Startups', {
     useMongoClient: true
 });
 
@@ -9,27 +9,17 @@ var conn = mongoose.connect('mongodb://localhost/Startups', {
 var Schema = mongoose.Schema;
 
 var userSchema = Schema({
-    username:{type: String, required: true},
-    password:{type: String, required: true},
-    email:{type: String, required: true},
-    photo:{type: String, required: true},
-    backedProjects:[{type: mongoose.Schema.Types.ObjectId, ref: 'Projects'}],
-    createdProjects:[{type: mongoose.Schema.Types.ObjectId, ref: 'Projects'}]
+    username: {type: String, required: true},
+    password: {type: String, required: true},
+    email: {type: String, required: true},
+    photo: {type: String, required: true},
+    backedProjects: [{type: mongoose.Schema.Types.ObjectId, ref: 'Projects'}],
+    createdProjects: [{type: mongoose.Schema.Types.ObjectId, ref: 'Projects'}]
 });
 
 var User = mongoose.model('User', userSchema);
 
-var bla = new User({
-    username: 'baduraaa',
-    password: '123456',
-    email: 'badura@1.com',
-    photo: 'badura.jpg'
-
-});
-
-console.log(bla);
 module.exports = User;
-
 
 var projectSchema = Schema({
     name:{type: String, required: true},
@@ -48,4 +38,3 @@ var projectSchema = Schema({
 var Project = mongoose.model('Project', projectSchema);
 
 module.exports = Project;
-
