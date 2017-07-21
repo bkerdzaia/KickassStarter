@@ -3,7 +3,7 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script>
             $(function(){
-                $("#upperMenu").load("./menu/upper_menu.html");
+//                $("#upperMenu").load("./menu/upper_menu.html");
                 $("#footerMenu").load("./menu/footer_menu.html");
             });
         </script>
@@ -18,15 +18,41 @@
         <link rel="stylesheet" href="./css/explore.css">
         <link rel="stylesheet" href="./css/basic.css">
         
+        <script src="node_modules/mustache/mustache.min.js"></script>   
         <script>
             function scrollTo(id) {
                 document.body.scrollTop = document.getElementById(id).offsetTop;
             }
+            
+            window.addEventListener('load', function() {
+                loadUser(); 
+            });
+            
+            function loadUser() {
+                var template = document.getElementById('categoryTemplate').innerHTML;
+                Mustache.parse(template);   // optional, speeds up future uses
+                var rendered = Mustache.render(template, categoryJSON);
+                document.getElementById('categoryTarget').innerHTML = rendered;
+            }
+            
+            var categoryJSON = {
+                "category": [
+                    {"label": "Art"}, 
+                    {"label": "Food"},
+                    {"label": "Tech"},
+                    {"label": "Finance"}
+                ],
+                "id": function() {
+                    return this.label.toLowerCase();
+                }
+            };
         </script>
     </head>
 
     <body>
         <!--upper menu goes herreeeee-->
+        
+        
         <div id="upperMenu" style="height:4.5em;"></div>
 
         <div class="search-container">
@@ -34,6 +60,16 @@
                 <input type="text" name="search" id="search" placeholder="Search Project..." onkeypress="scrollTo('content_list')" >
             </form>
         </div>
+        
+        
+        <script id="categoryTemplate" type="x-tmpl-mustache">
+            {{#category}}
+            <div>
+                <input type="checkbox" id="{{id}}">
+                <label for="{{id}}">{{label}}</label>
+            </div>
+            {{/category}}
+        </script>
         
 
         <div class="container">
@@ -55,6 +91,10 @@
 
                     <div id="category" class="column">
                         <h2>Category</h2>
+                        <div id="categoryTarget">
+                            LOADING CATEGORY
+                        </div>
+<!--
                         <div>
                             <input type="checkbox" id="art">
                             <label for="art">Art</label>
@@ -71,13 +111,36 @@
                             <input id="finance" type="checkbox">
                             <label for="finance">Finance</label>
                         </div>
+-->
                     </div>                             
                 </div>
                 
                 
                 <div id="content">
-                    <div id="content_list"></div>
-                    project results...
+                    <div id="content_list">
+                        <div class="content-item">
+                            <div class="product-img">
+                                <img class="product-img-img" src="images/avatar.jpg">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-text">
+                                    <a class="product-category" href="#">Food</a>
+                                    <div class="product-name">
+                                        <a class="product-name-link" href="#">by studio and friends</a>
+                                        Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces appear to be sliced and pulled aside, allowing room for growth.
+                                    </div>
+                                    
+                                    <div class="product-owner">
+                                        <img class="product-owner-avatar" src="images/proj1.jpg">
+                                        <div class="product-owner-content">
+                                            <span class="card-color">by</span>
+                                            <a class="product-owner-name" href="#">Author name</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             

@@ -5,52 +5,102 @@
         <title>profile</title>
         
         <style>
-            .image-container {
-                width: 100px;
-                height: 100px;
-            }
-            .image-container > img {
-                width: 100%;
-                height: 100%;
-                border: 2px solid #dedede;
-                border-radius: 15px;
-                background: #fff;
-                padding: 7px;
-            }
+.image-container {    
+    width: 70%;
+    height: auto;   
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
         </style>
-        <script>
         
-            function drop(ev) {
-                ev.stopPropagation();
-                ev.preventDefault();
-                var files = ev.dataTransfer.files;
-                if (files.length > 0) {
-                    var file = files[0];
-                    if (file.type.match(/image.*/)) {
-                        var reader = new FileReader();
-                        reader.onload = function(e2) {
-                            var img = document.createElement('img');
-                            img.src= e2.target.result;
-                            document.getElementById("imageDrop").innerHTML = "<img src=\"" +e2.target.result+"\">";
-                        }
-
-                        reader.readAsDataURL(file); 
-                    }
-                } else {
-                    var imageUrl = ev.dataTransfer.getData('text/html');
-                    var rex = /src="?([^"\s]+)"?\s*/;
-                    var url = rex.exec(imageUrl);
-                    document.getElementById("imageDrop").innerHTML = "<img src=\"" +url[1]+"\">";
-                }
-
-            }
-            
-        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+        <link rel="stylesheet" href="./css/profile.css">
     </head>
     
-    <body>
-        <div id="imageDrop" class="image-container" ondrop="drop(event)" ondragover="return false">
-            <img src="images/avatar.jpg" alt="avatar">
+    <body class="profile-body">
+        <div class="content">
+            <div class="row">
+                
+                <div class="user-block">
+                    <div class="row">
+                        
+                        <div class="col-img">
+                            <div class="image-container">
+                                <img src="images/avatar.jpg" alt="avatar">            
+                            </div>
+                            <a class="btn-round" href="#">
+                                <i class="icon-margin icon-call-in"></i>
+                                Contact me
+                            </a>
+
+                        </div>
+                        <div class="col-desc">
+                    <div class="desc-header">
+                        <h2 class="header">Johne Doe</h2>
+                    </div>
+                    <h4 class="short-desc">
+                        <i class="icon-badge icon-margin"></i>
+                        Project Manager
+                    </h4>
+                    
+                    <ul class="info-list">
+                        <li class="inline-list">
+                            <i class="icon-location-pin icon-margin"></i>
+                            Londong, UK
+                        </li>
+                    </ul>
+                    
+                    <hr class="divider">
+                    
+                    <p class="description">
+                        About elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellusimp imperdiet molestie est. Dell viverra cursus nibh volutpat at.
+                    </p>
+                    
+                    <hr class="divider">
+                    
+                </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card projects">
+                    <div class="card-header projects-header">
+                        <h3>
+                            <i class="icon-briefcase icon-margin"></i>
+                            Projects
+                        </h3>
+                    </div>
+                    
+                    <div class="card-body projects-body">
+                        <div class="list-container">
+                            <ul class="row list-content">
+                                <li class="list-elem">
+                                    <div class="row">
+                                        <div class="list-elem-header">
+                                            <h4 class="project-name">Project Name</h4>
+                                            <h5 class="project-date">2014-2015</h5>
+                                        </div>
+                                        
+                                        
+                                        <div class="list-item-body">
+                                            <div class="icon-timeline">
+                                                <i class="rounded-circle"></i>
+                                            </div>
+                                            
+                                            <article class="list-item-body-article">
+                                                <p class="list-item-body-article-parag">Project Description</p>
+                                            </article>
+                                        </div>
+                                        
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
         </div>
     </body>
 </html>

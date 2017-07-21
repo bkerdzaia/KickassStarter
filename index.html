@@ -1,71 +1,110 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script>
-            $(function(){
-                $("#upperMenu").load("./menu/upper_menu.html");
-                $("#footerMenu").load("./menu/footer.html");
-            });
-        </script>
+        
         <title>KickAssStarter</title>
         <link rel="stylesheet" href="./css/basic.css">
+        
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+        <!-- here I use only font nothing more :3-->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+           
     </head>
 
     <body>
         <!--upper menu goes herreeeee-->
-        <div id="upperMenu"></div>
-
-        <div class="picSliderFrame">
-            <div class = "picSFImgs">
-                <img class="mySlides" src="./images/sl3.jpg">
-                <img class="mySlides" src="./images/sl1.jpg">
-                <img class="mySlides" src="./images/sl2.jpg">
+        <header>
+        
+            <div id="umenu">
+                <a href="./index.html">
+                    <img src="./images/kaslogo.png">
+                </a>
+                <a href="./explore.html">
+                    Explore
+                </a>
+                <a href="./lstartproject.html">
+                    Start Project
+                </a>
+                <a>
+                    About Us
+                </a>
+                <a href="./login.html">
+                    Login
+                </a>
+                <a href="./signup.html">
+                    Sign Up
+                </a>
             </div>
 
-            <div>
-                <button onclick="plusDivs(-1)">< Prev</button>
-                <button onclick="plusDivs(1)">Next ></button>
-            </div>
-        </div>
-
-        <div class="border"></div>
-
-        <div class="mfunded">
-            <a><h3>Invested & Started Businesses</h3></a>
-            <a>
-                <img src="./images/proj1.jpg" style="float:left">
-            </a>
-            <div>
-                <h3>Project Description & Title & ...</h3>
-                <p>This SHit is project description</p>
-            </div>
-        </div>
-
-        <div class="border" style="float: left"></div>
-
-
-        <script>
-            var slideIndex = 1;
-            showDivs(slideIndex);
-
-            function plusDivs(n) {
-                showDivs(slideIndex += n);
-            }
-
-            function showDivs(n) {
-                var i;
-                var x = document.getElementsByClassName("mySlides");
-                if (n > x.length) {slideIndex = 1}
-                if (n < 1) {slideIndex = x.length}
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                }
-                x[slideIndex-1].style.display = "block";
-            }
-        </script>
-
+            <!--facebook floating left button begins here-->
+            <nav class="fb">
+                <ul>
+                    <li>
+                        <a href="http://facebook.com/chanturia.data">
+                            <strong>Facebook </strong>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main id="content">
+            <p>Loading Content...</p>
+        </main>
+        
         <!--footer menu goes herreeeee-->
-        <div id="footerMenu"></div>
+        <footer>
+            <div id="footer">
+                <div class="footer-column">
+                    <h3>More About Us</h3>
+                    <p>text</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Discover</h3>
+                    <div class="list-column">
+                        
+                        <ul>
+                            <li><a href="">Art</a></li>
+                            <li><a href="">Food</a></li>
+                            <li><a href="">Art</a></li>
+                            <li><a href="">Food</a></li>
+                            <li><a href="">Art</a></li>
+                            <li><a href="">Art</a></li>
+                            <li><a href="">Food</a></li>
+                            <li><a href="">Art</a></li>
+                        </ul>
+                        
+                    </div>
+                    
+                    <div class="list-column">
+                        
+                        <ul>
+                            <li><a href="">Art</a></li>
+                            <li><a href="">Food</a></li>
+                            <li><a href="">Art</a></li>
+                        </ul>
+                        
+                    </div>
+                    
+                </div>
+               
+            </div>
+            
+            <div class="copy-right">
+                
+                Copyright &copy; 2017 <a href="#">KickAssStarter</a>
+			
+            </div>
+            
+        </footer>
+        
+        
+        <script src="./libs/navigo.min.js"></script>
+        <script src="./scripts/navigoHandler.js"></script>
+        <script src="./scripts/slideshow.js"></script>
+    
     </body>
 
 </html>

@@ -9,7 +9,6 @@
     background-color: white;
     position: fixed;
     z-index: 300;
-    margin-top: -1em;
 }
 
 #search:-webkit-autofill {
@@ -100,9 +99,8 @@ input {
 
 #content {
     background-color: lightgrey;
-    width: 90%;
+    width: 100%;
     height: 500px;
-    padding: 30px;
     margin-left: auto;
     margin-right: auto;
     clear:both;
@@ -142,4 +140,119 @@ input {
 
 .equal_height_container {
     display: flex;
+    text-align: left;
+}
+
+#content_list {
+    padding: 2rem 1rem;
+}
+
+.content-item {
+    display: -webkit-box!important;
+    display: -webkit-flex!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -webkit-box-pack: justify!important;
+    -webkit-justify-content: space-between!important;
+    -ms-flex-pack: justify!important;
+    justify-content: space-between!important;
+    -webkit-box-align: center!important;
+    -webkit-align-items: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+    width: 100%;
+    flex-wrap: wrap;
+    border-radius: .5rem .5rem .5rem .5rem;
+    -webkit-box-shadow: 0rem 1rem 2rem 0rem rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0rem 1rem 2rem 0rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0rem 1rem 2rem 0rem rgba(0, 0, 0, 0.15);
+    margin-top: .5rem;
+}
+
+.product-img {
+    -webkit-flex: 0 0 20%;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+    height: 10rem;
+}
+
+.product-info {
+    -webkit-flex: 0 0 80%;
+    -ms-flex: 0 0 80%;
+    flex: 0 0 80%;
+    max-width: 80%;
+    height: 20rem;
+    border-radius: 0 .5rem .5rem 0;
+    background-color: #ffffff;
+    height: 10rem;
+}
+
+.product-category {
+    color: #626369;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .9rem !important;
+    line-height: .5rem !important;
+    margin-bottom: 1.5rem;
+}
+
+.product-text {
+    padding-left: 1rem;
+    padding-top: .5rem;
+}
+
+.product-img-img {
+    border-radius: .5rem 0 0 .5rem;
+    height: 100%;
+    width: 100%;
+}
+
+.product-name {
+    color: #95959E;
+    text-align: left;
+    padding-right: 2rem;
+    margin-top: .5rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.4rem !important;
+    line-height: 1.5rem !important;
+    height: 3rem;
+    overflow: hidden;
+}
+
+.product-name-link {
+    color: #353535;
+    text-decoration: none;
+}
+
+.product-owner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1.3rem !important;
+    line-height: 1.8rem !important;
+}
+
+.card-color {
+    color: #95959E;
+}
+
+.product-owner-name {
+    font-weight: 500;
+    color: #353535;
+    text-decoration: none;
+}
+
+.product-owner-avatar {
+    margin-right: 1.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    display: inline-block;
+    border: 0.1rem solid #DCDEDD;
+    border-color: #DCDEDD !important;
+    list-style-type: circle;
+    vertical-align: middle;
 }
