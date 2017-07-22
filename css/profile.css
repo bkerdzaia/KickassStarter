@@ -163,6 +163,7 @@
 .profile-body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: #555;
+    margin-top: 2rem;
 }
 
 
@@ -470,6 +471,20 @@
     padding-right: 0.71429rem !important
 }
 
+input.tabs-pan-list-item-body {
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    box-shadow: none;
+    transition: all .3s;
+}
+
+input.tabs-pan-list-item-body:focus {
+    border: none;
+    border-bottom: 1px solid blueviolet !important;
+    box-shadow: 0 1px 0 0 blueviolet !important;
+}
+
 .tabs-pan-list-item-body {
     vertical-align: top!important;
     padding: .3rem;
@@ -688,4 +703,11 @@ input:focus {
 
 .product-owner-content {
     display: inline-block;
+}
+
+.image-container {
+    width: 70%;
+    height: auto;   
+    margin: 0 auto;
+    margin-bottom: 1em;
 }
