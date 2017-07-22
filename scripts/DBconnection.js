@@ -33,8 +33,9 @@ var projectSchema = Schema({
     Budget: Number,
     Info:{type: String},
     author:{type: mongoose.Schema.Types.ObjectId, ref:User},
-    cofounders:[{id: mongoose.Schema.Types.ObjectId, ref:User, money: Number}],
-    sharesPersenage: Number
+    cofounders:[{id: mongoose.Schema.Types.ObjectId, money: Number}],
+    sharesPersenage: Number,
+    numVisits: Number
 });
 
 var Project = mongoose.model('Project', projectSchema);
