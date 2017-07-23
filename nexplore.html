@@ -11,42 +11,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
 
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://www.w3schools.com/lib/w3.js"></script>
-        
-        <link rel="stylesheet" href="./css/explore.css">
-        <link rel="stylesheet" href="./css/basic.css">
-        
         <script src="node_modules/mustache/mustache.min.js"></script>   
         <script>
             function scrollTo(id) {
                 document.body.scrollTop = document.getElementById(id).offsetTop;
             }
             
-            window.addEventListener('load', function() {
-                loadUser(); 
-            });
-            
-            function loadUser() {
-                var template = document.getElementById('categoryTemplate').innerHTML;
-                Mustache.parse(template);   // optional, speeds up future uses
-                var rendered = Mustache.render(template, categoryJSON);
-                document.getElementById('categoryTarget').innerHTML = rendered;
-            }
-            
-            var categoryJSON = {
-                "category": [
-                    {"label": "Art"}, 
-                    {"label": "Food"},
-                    {"label": "Tech"},
-                    {"label": "Finance"}
-                ],
-                "id": function() {
-                    return this.label.toLowerCase();
-                }
-            };
+//            window.addEventListener('load', function() {
+//                loadUser(); 
+//            });
+//            
+//            function loadUser() {
+//                var template = document.getElementById('categoryTemplate').innerHTML;
+//                Mustache.parse(template);   // optional, speeds up future uses
+//                var rendered = Mustache.render(template, categoryJSON);
+//                document.getElementById('categoryTarget').innerHTML = rendered;
+//            }
+//            
+//            var categoryJSON = {
+//                "category": [
+//                    {"label": "Art"}, 
+//                    {"label": "Food"},
+//                    {"label": "Tech"},
+//                    {"label": "Finance"}
+//                ],
+//                "id": function() {
+//                    return this.label.toLowerCase();
+//                }
+//            };
         </script>
+<<<<<<< HEAD:nexplore.html
     </head>
 
     <body>
@@ -60,6 +54,7 @@
         </div>
         
         
+<!--
         <script id="categoryTemplate" type="x-tmpl-mustache">
             {{#category}}
             <div>
@@ -68,6 +63,7 @@
             </div>
             {{/category}}
         </script>
+-->
         
 
         <div class="container" style="padding-top: 50px; padding-bottom: 100px">
@@ -75,7 +71,7 @@
             <div class="left">
             </div>
             
-            <div class="center">
+            <div class="center-container">
                 
                 <div id="search_filters" class="equal_height_container">
                     <div id="list-tag" class="column">
@@ -89,10 +85,11 @@
 
                     <div id="category" class="column">
                         <h2>Category</h2>
+<!--
                         <div id="categoryTarget">
                             LOADING CATEGORY
                         </div>
-<!--
+-->
                         <div>
                             <input type="checkbox" id="art">
                             <label for="art">Art</label>
@@ -109,12 +106,11 @@
                             <input id="finance" type="checkbox">
                             <label for="finance">Finance</label>
                         </div>
--->
                     </div>                             
                 </div>
                 
                 
-                <div id="content">
+                <div id="content-projects">
                     <div id="content_list">
                         <div class="content-item">
                             <div class="product-img">
@@ -145,8 +141,3 @@
             <div class="right">
             </div>
         </div>
-
-        <!--footer menu goes herreeeee-->
-        <div id="footerMenu"></div>
-    </body>
-</html>

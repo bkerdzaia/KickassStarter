@@ -1,10 +1,58 @@
 
+
+class Server {
+    sendRequest(url, resultFn) {
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            // Success!
+              resultFn(request.responseText);
+//            resultFn(JSON.parse(request.responseText));
+          } else {
+            // We reached our target server, but it returned an error
+
+          }
+        };
+
+        request.onerror = function() {
+          // There was a connection error of some sort
+        };
+
+        request.send();
+    }
+}
+
 var router = new Navigo(null, true);
+var server = new Server();
 
 router
     .on({
         'profile': function() {
-            setContent('<p>profile</p>');
+            server.sendRequest("profile.html", function(data) {
+                setContent(data);
+            });
+        },
+        'explore': function() {
+            server.sendRequest("explore.html", function(data) {
+                setContent(data);
+            });
+        },
+        'login': function() {
+            server.sendRequest("login.html", function(data) {
+                setContent(data);
+            });
+        },
+        'signup': function() {
+            server.sendRequest("signup.html", function(data) {
+                setContent(data);
+            });
+        },
+        'lstartproject': function() {
+            server.sendRequest("lstartproject.html", function(data) {
+                setContent(data);
+            });
         },
         '*': function() {
             display('home');
@@ -22,9 +70,9 @@ function display(path) {
         setContent(`
             <div class="picSliderFrame">
                 <div class = "picSFImgs">
-                    <img class="mySlides" src="./images/sl3.jpg">
-                    <img class="mySlides" src="./images/sl1.jpg">
-                    <img class="mySlides" src="./images/sl2.jpg">
+                    <img class="mySlides" src="./images/sl3.jpg" style="display:block;">
+                    <img class="mySlides" src="./images/sl1.jpg" style="display:none;">
+                    <img class="mySlides" src="./images/sl2.jpg" style="display:none;">
                 </div>
 
                 <div class="center">
