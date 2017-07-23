@@ -6,18 +6,18 @@ class Server {
         request.open('GET', url, true);
 
         request.onload = function() {
-          if (request.status >= 200 && request.status < 400) {
-            // Success!
-              resultFn(request.responseText);
+            if (request.status >= 200 && request.status < 400) {
+                // Success!
+                resultFn(request.responseText);
 //            resultFn(JSON.parse(request.responseText));
-          } else {
-            // We reached our target server, but it returned an error
+            } else {
+                // We reached our target server, but it returned an error
 
-          }
+            }
         };
 
         request.onerror = function() {
-          // There was a connection error of some sort
+            // There was a connection error of some sort
         };
 
         request.send();
@@ -31,7 +31,7 @@ var server = new Server();
 router
     .on({
         'profile': function() {
-            server.sendRequest("/../lprofile.html", function(data) {
+            server.sendRequest("/../profile.html", function(data) {
                 setContent(data);
             });
         },
@@ -40,22 +40,22 @@ router
                 setContent(data);
             });
         },
-        'nlogin': function() {
-            server.sendRequest("nlogin.html", function(data) {
+        'login': function() {
+            server.sendRequest("login.html", function(data) {
                 setContent(data);
             });
         },
-        'nsignup': function() {
-            server.sendRequest("nsignup.html", function(data) {
+        'signup': function() {
+            server.sendRequest("signup.html", function(data) {
                 setContent(data);
             });
         },
-        'lstartproject': function() {
-            server.sendRequest("lstartproject.html", function(data) {
+        'startproject': function() {
+            server.sendRequest("startproject.html", function(data) {
                 setContent(data);
             });
         },
-        
+
         '*': function() {
             console.log('disp home');
             display('home');

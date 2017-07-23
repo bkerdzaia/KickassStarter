@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./css/basic.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/login_signup.css">
+
+
+    <script src="scripts/facebook.js"></script>
+    <script src="scripts/DBconnection.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="join">Join us</div>
+    <div class="lock"></div>
+    <div class="clr"></div>
+    <div class="login-options">Choose on of the following Sign up
+        methods.</div>
+
+    <form action="./index.html" method="get" name="register"
+          id="myForm">
+        <input name="fusername" type="hidden" id="fusername" />
+        <input name="fpassword" type="hidden" id="fpassword" />
+        <input name="femail" type="hidden" id="femail" />
+        <input name="fphoto" type="hidden" id="fphoto" />
+        <a class="facebook" href="" onclick="">Sign up with Facebook</a>
+    </form>
+
+
+    <div class="clr">
+        <hr />
+    </div>
+    <div class="mail-text">Or sign up using your email address.</div>
+    <div class="forms">
+        <form action="./index.html" method="post" name="register">
+            <input name="username"
+                   placeholder="Enter your username or just name..."
+                   id="username" required />
+            <input
+                    name="email" type="text" placeholder="Enter your email address..."
+                    id="email" required />
+            <input name="password" type="password"
+                   placeholder="Enter a password..."
+                   id="password" required />
+            <button class="create-acc">Create Account</button>
+            <div align="right" id="toLogin">
+                <a class="mail-text" href="login.html">Log In</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="scripts/signup.js"></script>
+</html>
