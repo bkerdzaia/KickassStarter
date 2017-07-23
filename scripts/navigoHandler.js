@@ -24,28 +24,29 @@ class Server {
     }
 }
 
-var router = new Navigo(null, true);
+var router = new Navigo(null, true, "#");
 var server = new Server();
+
 
 router
     .on({
         'profile': function() {
-            server.sendRequest("profile.html", function(data) {
+            server.sendRequest("lprofile.html", function(data) {
                 setContent(data);
             });
         },
-        'explore': function() {
-            server.sendRequest("explore.html", function(data) {
+        'nexplore': function() {
+            server.sendRequest("nexplore.html", function(data) {
                 setContent(data);
             });
         },
-        'login': function() {
-            server.sendRequest("login.html", function(data) {
+        'nlogin': function() {
+            server.sendRequest("nlogin.html", function(data) {
                 setContent(data);
             });
         },
-        'signup': function() {
-            server.sendRequest("signup.html", function(data) {
+        'nsignup': function() {
+            server.sendRequest("nsignup.html", function(data) {
                 setContent(data);
             });
         },
@@ -54,11 +55,21 @@ router
                 setContent(data);
             });
         },
+        
+        'lindex': function() {
+            server.sendRequest("lindex.html", function(data) {
+                setContent(data);
+            });
+        },
+        
         '*': function() {
+            console.log('disp home');
             display('home');
         }
-    })
-    .resolve();
+    });
+
+router.resolve();
+
 
 function setContent(contentHtml) {
     var displayContent = document.getElementById('content');
