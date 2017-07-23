@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./css/basic.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/login_signup.css">
+
+    <script src="scripts/DBconnection.js"></script>
+</head>
+<body>
+<!--upper menu goes herreeeee-->
+<div id="upperMenu"></div>
 
 <div id="wrapper">
     <div class="join">Join us</div>
@@ -6,17 +20,6 @@
     <div class="login-options">Choose on of the following Sign up
         methods.</div>
 
-    <form action="TODO!!" method="get" name="register"
-          id="myForm">
-        <input name="fusername" type="hidden" id="fusername" />
-        <input name="fpassword" type="hidden" id="fpassword" />
-        <input name="femail" type="hidden" id="femail" />
-        <input name="fphoto" type="hidden" id="fphoto" />
-        <a class="facebook" href="./fbSignup.html" onclick="">Sign up with Facebook</a>
-    </form>
-
-
-<<<<<<< HEAD:nsignup.html
             <form action="TODO!!" method="get" name="register"
                   id="myForm">
                 <input name="fusername" type="hidden" id="fusername" />
@@ -26,10 +29,6 @@
                 <a class="facebook" href="nfbSignup.html" onclick="">Sign up with Facebook</a>
             </form>
 
-
-            <div class="clr">
-                <hr />
-=======
     <div class="clr">
         <hr />
     </div>
@@ -47,9 +46,21 @@
                    id="password" required />
             <button class="create-acc">Create Account</button>
             <div align="right" id="toLogin">
-                <a class="mail-text" href="./login.html">Log In</a>
->>>>>>> 604876722fc628d82fe6f3fc918a011896f608dc:signup.html
+                <a class="mail-text" href="nlogin.html">Log In</a>
             </div>
         </form>
     </div>
 </div>
+
+    <!--footer menu goes herreeeee-->
+    <div id="footerMenu"></div>
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts/signup.js"></script>
+    <script>
+        $(function(){
+            $("#upperMenu").load("./menu/upper_menu.html");
+            $("#footerMenu").load("./menu/footer_menu.html");
+        });
+    </script>
+</html>
