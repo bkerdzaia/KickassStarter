@@ -24,19 +24,19 @@ class Server {
     }
 }
 
-var router = new Navigo(null, true, "#");
+var router = new Navigo(null, true);
 var server = new Server();
 
 
 router
     .on({
         'profile': function() {
-            server.sendRequest("lprofile.html", function(data) {
+            server.sendRequest("/../lprofile.html", function(data) {
                 setContent(data);
             });
         },
-        'nexplore': function() {
-            server.sendRequest("nexplore.html", function(data) {
+        'explore': function() {
+            server.sendRequest("explore-del.html", function(data) {
                 setContent(data);
             });
         },
@@ -52,12 +52,6 @@ router
         },
         'lstartproject': function() {
             server.sendRequest("lstartproject.html", function(data) {
-                setContent(data);
-            });
-        },
-        
-        'lindex': function() {
-            server.sendRequest("lindex.html", function(data) {
                 setContent(data);
             });
         },
