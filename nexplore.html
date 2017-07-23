@@ -3,7 +3,7 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <script>
             $(function(){
-//                $("#upperMenu").load("./menu/upper_menu.html");
+                $("#upperMenu").load("./menu/upper_menu.html");
                 $("#footerMenu").load("./menu/footer_menu.html");
             });
         </script>
@@ -51,11 +51,9 @@
 
     <body>
         <!--upper menu goes herreeeee-->
-        
-        
-        <div id="upperMenu" style="height:4.5em;"></div>
+        <div id="upperMenu"></div>
 
-        <div class="search-container">
+        <div class="search-container" style="margin-top: 60px">
             <form>
                 <input type="text" name="search" id="search" placeholder="Search Project..." onkeypress="scrollTo('content_list')" >
             </form>
@@ -72,7 +70,7 @@
         </script>
         
 
-        <div class="container">
+        <div class="container" style="padding-top: 50px; padding-bottom: 100px">
         
             <div class="left">
             </div>
