@@ -31,7 +31,7 @@ var server = new Server();
 router
     .on({
         'profile': function() {
-            server.sendRequest("/../lprofile.html", function(data) {
+            server.sendRequest("/../profile.html", function(data) {
                 setContent(data);
             });
         },

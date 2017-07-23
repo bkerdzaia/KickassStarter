@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>KickAssStarter</title>
+    <link rel="stylesheet" href="./css/basic.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <!-- here I use only font nothing more :3-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<div style="padding-top: 100px;">
+    <form action="./index.html" method="" name="start_project" id="start_project">
+        <h1 style="margin-left: 200px;">Project Name goes here:</h1>
+        <textarea form="start_project" style="margin-top: 10px; margin-left: 200px; word-wrap: break-word; width: 70%" required></textarea>
+
+        <h1 style="margin-left: 200px;">Description of project goes here:</h1>
+        <textarea form="start_project" style="margin-top: 10px; margin-left: 200px; word-wrap: break-word; width: 70%" required></textarea>
+
+        <h1 style="margin-left: 200px;">Mark your category:</h1>
+        <textarea form="start_project" style="margin-top: 10px; margin-left: 200px; word-wrap: break-word; width: 70%" required></textarea>
+
+        <h1 style="margin-left: 200px;">Choose project ending date (standard project length 1 month):</h1>
+        <textarea form="start_project" style="margin-top: 10px; margin-left: 200px; word-wrap: break-word; width: 70%" required></textarea>
+
+        <h1 style="margin-left: 200px;">Whole information about your project goes here:</h1>
+        <textarea form="start_project" style="margin-top: 10px; margin-left: 200px; word-wrap: break-word; width: 70%" required></textarea>
+
+        <h1 style="margin-left: 200px;">Target money:</h1>
+        <textarea form="start_project" style="margin-top: 10px; margin-left: 200px; word-wrap: break-word; width: 70%" required></textarea>
+
+        <h1 style="margin-left: 200px;">Photo:</h1>
+        <input form="start_project" type="file" name="pic" accept="image/*" style="margin-top: 10px; margin-left: 200px; word-wrap: break-word; width: 70%" required>
+
+        <h1 style="margin-left: 200px;">Mark your category:</h1>
+
+        <input style="margin-left: 200px;" type="radio" name="category" value="art" checked="checked"> Art <br>
+        <input style="margin-left: 200px;" type="radio" name="category" value="food"> Food <br>
+        <input style="margin-left: 200px;" type="radio" name="category" value="tech"> Tech <br>
+        <input style="margin-left: 200px;" type="radio" name="category" value="finance"> Finance <br>
+
+        <h1 style="margin-left: 200px;">Choose project ending date (standard project length 2 months):</h1>
+        <input form="start_project" style="margin-left: 200px;" type="date" name="prenddate" min="" max="" required> <br>
+
+        <h1 style="margin-left: 200px;">Whole information about your project goes here:</h1>
+        <textarea form="start_project" style="margin-top: 10px; margin-left: 200px; word-wrap: break-word; width: 70%" required></textarea>
+
+        <h1 style="margin-left: 200px;">Target money (in USD $):</h1>
+        <input type="number" min="1" style="margin-top: 10px; margin-left: 200px;" required></textarea> <br>
+
+        <button style="margin-bottom: 50px; margin-top: 10px; margin-left: 200px;">
+            Start Project
+        </button>
+    </form>
+</div>
+
+<!--<div class="input_fields_wrap" style="padding-top: 100px;  width: 50%; margin: 0 auto;">-->
+<!--<button class="add_field_button">Add More Fields</button>-->
+<!--<div><input type="text" name="mytext[]"></div>-->
+<!--</div>-->
+
+
+<!--<script>-->
+<!--$(document).ready(function() {-->
+<!--var max_fields      = 10; //maximum input boxes allowed-->
+<!--var wrapper         = $(".input_fields_wrap"); //Fields wrapper-->
+<!--var add_button      = $(".add_field_button"); //Add button ID-->
+
+<!--var x = 1; //initlal text box count-->
+<!--$(add_button).click(function(e){ //on add input button click-->
+<!--e.preventDefault();-->
+<!--if(x < max_fields){ //max input box allowed-->
+<!--x++; //text box increment-->
+<!--$(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box-->
+<!--}-->
+<!--});-->
+
+<!--$(wrapper).on("click",".remove_field", function(e){ //user click on remove text-->
+<!--e.preventDefault(); $(this).parent('div').remove(); x&#45;&#45;;-->
+<!--})-->
+<!--});-->
+<!--</script>-->
+
+<script src="./libs/navigo.min.js"></script>
+<script src="./scripts/navigoHandler.js"></script>
+<script src="./scripts/slideshow.js"></script>
+
+</body>
+
+</html>
