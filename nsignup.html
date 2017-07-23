@@ -34,16 +34,17 @@
     </div>
     <div class="mail-text">Or sign up using your email address.</div>
     <div class="forms">
-        <form action="" method="post" name="register">
+        <form  action="signup" method="post" name="register" >
+
             <input name="username"
                    placeholder="Enter your username or just name..."
-                   id="username" required />
+                   id="username"  />
             <input
                 name="email" type="text" placeholder="Enter your email address..."
-                id="email" required />
+                id="email"  />
             <input name="password" type="password"
                    placeholder="Enter a password..."
-                   id="password" required />
+                   id="password"  />
             <button class="create-acc">Create Account</button>
             <div align="right" id="toLogin">
                 <a class="mail-text" href="nlogin.html">Log In</a>
@@ -51,16 +52,18 @@
         </form>
     </div>
 </div>
+    
+
 
     <!--footer menu goes herreeeee-->
     <div id="footerMenu"></div>
-</body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="scripts/signup.js"></script>
-    <script>
+    <script type="text/javascript">
         $(function(){
             $("#upperMenu").load("./menu/upper_menu.html");
             $("#footerMenu").load("./menu/footer_menu.html");
         });
     </script>
+</body>
 </html>
