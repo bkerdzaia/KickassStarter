@@ -30,20 +30,31 @@
     <a href="startproject" data-navigo>
         Start Project
     </a>
-    <a>
-        About Us
+    <a id="myprofile" href="profile" data-navigo>
     </a>
-    <a href="login" data-navigo>
+    <a id="um_login" href="login" data-navigo>
         Login
     </a>
-    <a href="signup" data-navigo>
+    <a id="um_sign" href="signup" data-navigo>
         Sign Up
     </a>
 </div>
 
+<!--<script type="text/javascript" src="./scripts/Server.js"></script>-->
+<script>
+//    if(suser.logedIn == true){
+        document.getElementById("um_login").innerHTML = "Profile Settings";
+        document.getElementById("um_login").href = "profsettings";
+        document.getElementById("um_sign").innerHTML = "Logout";
+        document.getElementById("um_sign").href = "logout";
+        document.getElementById("myprofile").innerHTML = "My Profile";
+        document.getElementById("myprofile").href = "profile";
+//    }
+</script>
+
 <!-- BEGIN facebook slider -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<nav class="social">
+<nav class="fb">
     <ul>
         <li><a href="http://facebook.com/chanturia.data"><strong>Facebook </strong><i class="fa fa-facebook"></i></a>
         </li>

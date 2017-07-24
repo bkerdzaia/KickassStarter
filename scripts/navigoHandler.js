@@ -48,6 +48,11 @@ router
                 setContent(data);
             });
         },
+        'profsettings': function() {
+            server.sendRequest("profile-settings.html", function(data) {
+                setContent(data);
+            });
+        },
         'signup': function() {
             server.sendRequest("signup.html", function(data) {
                 setContent(data);
