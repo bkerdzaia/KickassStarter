@@ -33,13 +33,15 @@
     ],
 
     "projectAdd": {
+        "userId": "id",
         "name": "project Name",
         "description": "project Description",
         "category": "project category",
         "endDate": "date",
         "content": "project content",
         "money": "project target money",
-        "image": "project image/jpg"
+        "image": "project image/jpg",
+        "shearspersentages": "parcentage"
     }
 
 }
