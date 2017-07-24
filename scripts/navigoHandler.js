@@ -30,6 +30,11 @@ var Mustache;
 
 router
     .on({
+        'startproject': function() {
+            server.sendRequest("startproject.html", function(data) {
+                setContent(data);
+            });
+        },
         'profile': function() {
             server.sendRequest("profile.html", function(data) {
                 setContent(data);
@@ -58,8 +63,8 @@ router
                 setContent(data);
             });
         },
-        'startproject': function() {
-            server.sendRequest("startproject.html", function(data) {
+        'project': function() {
+            server.sendRequest("project.html", function(data) {
                 setContent(data);
             });
         },
@@ -97,31 +102,26 @@ function display(path) {
 
 
                 <div class="mfunded">
-                <a><h1>Invested & Started Businesses</h1></a>
-                <div class="project_main">
-                    <a>
-                        <img src="./images/proj1.jpg">
-                    </a>
-                    <div>
-                        <h3>Project Description & Title & ...</h3>
+                    <a><h1>Invested & Started Businesses</h1></a>
+                    <div class="project_main">
+                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
+                        <a>
+                            <img src="./images/proj1.jpg">
+                        </a>
                         <p>This SHit is project description</p>
                     </div>
-                </div>
-                <div class="project_main">
-                    <a>
-                        <img src="./images/proj1.jpg">
-                    </a>
-                    <div>
-                        <h3>Project Description & Title & ...</h3>
+                    <div class="project_main">
+                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
+                        <a>
+                            <img src="./images/proj1.jpg">
+                        </a>
                         <p>This SHit is project description</p>
                     </div>
-                </div>
-                <div class="project_main">
-                    <a>
-                        <img src="./images/proj1.jpg">
-                    </a>
-                    <div>
-                        <h3>Project Description & Title & ...</h3>
+                    </div><div class="project_main">
+                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
+                        <a>
+                            <img src="./images/proj1.jpg">
+                        </a>
                         <p>This SHit is project description</p>
                     </div>
                 </div>
