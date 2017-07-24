@@ -81,15 +81,15 @@ function display(path) {
                 </div>
 
                 <div class="center">
-                    <a class="prevNextButton" onclick="plusDivs(-1)"> Prev</a>
-                    <a class="prevNextButton" onclick="plusDivs(1)">Next </a>
+                    <button class="button" onclick="plusDivs(1)"><span>Next </span></button>
                 </div>
                 </div>
 
                 <div class="border"></div>
 
+
                 <div class="mfunded">
-                <a><h3>Invested & Started Businesses</h3></a>
+                <a><h1>Invested & Started Businesses</h1></a>
                 <a>
                     <img src="./images/proj1.jpg" style="float:left">
                 </a>
