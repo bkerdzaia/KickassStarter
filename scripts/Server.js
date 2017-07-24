@@ -1,6 +1,4 @@
 
-import {request} from "../../../../../../../../home/koka/.WebStorm2017.2/config/javascript/extLibs/http_github.com_DefinitelyTyped_DefinitelyTyped_raw_master_types_express-serve-static-core_index";
-
 require('./DBconnection');
 var express = require('express');
 var mongoose = require('mongoose');
