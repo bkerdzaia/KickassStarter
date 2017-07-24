@@ -26,7 +26,7 @@ class Server {
 
 var router = new Navigo(null, true);
 var server = new Server();
-
+var Mustache;
 
 router
     .on({
@@ -37,7 +37,10 @@ router
         },
         'explore': function() {
             server.sendRequest("explore-del.html", function(data) {
-                setContent(data);
+
+                server.sendRequest("/projectsList", function(view) {
+                    setContent(Mustache.render(data, view));
+                });
             });
         },
         'login': function() {
