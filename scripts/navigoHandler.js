@@ -93,12 +93,32 @@ function display(path) {
 
                 <div class="mfunded">
                 <a><h1>Invested & Started Businesses</h1></a>
-                <a>
-                    <img src="./images/proj1.jpg" style="float:left">
-                </a>
-                <div>
-                    <h3>Project Description & Title & ...</h3>
-                    <p>This SHit is project description</p>
+                <div class="project_main">
+                    <a>
+                        <img src="./images/proj1.jpg">
+                    </a>
+                    <div>
+                        <h3>Project Description & Title & ...</h3>
+                        <p>This SHit is project description</p>
+                    </div>
+                </div>
+                <div class="project_main">
+                    <a>
+                        <img src="./images/proj1.jpg">
+                    </a>
+                    <div>
+                        <h3>Project Description & Title & ...</h3>
+                        <p>This SHit is project description</p>
+                    </div>
+                </div>
+                <div class="project_main">
+                    <a>
+                        <img src="./images/proj1.jpg">
+                    </a>
+                    <div>
+                        <h3>Project Description & Title & ...</h3>
+                        <p>This SHit is project description</p>
+                    </div>
                 </div>
             </div>
 
