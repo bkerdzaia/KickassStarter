@@ -12,7 +12,6 @@
 }
 
 #search:-webkit-autofill {
-    font-family: serif, monospace;
     font-size: 1.5em;
     border: 2px solid rgba(0, 0, 0, 0.4);
     border-radius: 5px;
@@ -26,7 +25,6 @@
     width: 40%;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
-    font-family: serif, monospace;
     font-size: 1.5em;
     border: 2px solid rgba(0, 0, 0, 0.4);
     border-radius: 5px;
@@ -61,7 +59,6 @@
 }
 
 #list-tag a {
-    font-family: serif, monospace;
     font-size: 1.5em;
     text-decoration: none;
     color: black;
