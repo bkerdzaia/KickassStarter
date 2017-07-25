@@ -144,7 +144,7 @@ function display(path) {
                 <div class = "picSFImgs">
                     <img class="mySlides" src="./images/sl3.jpg" style="display:block;">
                     <img class="mySlides" src="./images/sl1.jpg" style="display:none;">
-                    <img class="mySlides" src="./images/sl2.jpg" style="display:none;">
+                    <img class="mySlides" src="./images/giphy.gif" style="display:none;">
                 </div>
                 <div class="center">
                     <button class="button" onclick="plusDivs(1)"><span>Next </span></button>
