@@ -119,7 +119,11 @@ router
                 setContent(data);
             });
         },
-
+        'profsettings': function() {
+            updateContent("profile-settings.html", function(data) {
+                setContent(data);
+            });
+        },
         '*': function() {
             console.log('disp home');
             display('home');
