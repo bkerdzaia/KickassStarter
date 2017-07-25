@@ -9,13 +9,14 @@ mongoose.connect('mongodb://localhost/Startups', {
 var Schema = mongoose.Schema;
 
 var userSchema = Schema({
+    _id: String,
     username: {type: String, required: true},
     password: {type: String, required: true},
     email: {type: String, required: true},
     photo: {type: String, required: true},
     logedIn:{type:Boolean, required: true},
-    backedProjects: [{type: mongoose.Schema.Types.ObjectId, ref: 'Projects'}],
-    createdProjects: [{type: mongoose.Schema.Types.ObjectId, ref: 'Projects'}]
+    backedProjects: [{type: String, ref: 'Projects'}],
+    createdProjects: [{type: String, ref: 'Projects'}]
 });
 
 var User = mongoose.model('User', userSchema);
@@ -23,6 +24,7 @@ var User = mongoose.model('User', userSchema);
 module.exports = User;
 
 var projectSchema = Schema({
+    _id: String,
     name:{type: String, required: true},
     description:{type: String},
     photo:{type: String},
@@ -32,8 +34,8 @@ var projectSchema = Schema({
     targetMoney: Number,
     Budget: Number,
     Info:{type: String},
-    author:{type: mongoose.Schema.Types.ObjectId, ref:User},
-    cofounders:[{id: mongoose.Schema.Types.ObjectId, money: Number}],
+    author:{type: String, ref:User},
+    cofounders:[{id: String, money: Number}],
     sharesPercenage: Number,
     numVisits: Number
 });
