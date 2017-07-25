@@ -104,11 +104,16 @@ router
         'profsettings': function() {
             updateContent("profile-settings.html", function(data) {
                 setContent(data);
+                drop(data);
+                getActiveElem(data);
+                tabHandle();
+                editPencilListener();
             });
         },
         'project': function() {
             updateContent("project.html", function(data) {
                 setContent(data);
+                projectpage(data);
             });
         },
         '*': function() {

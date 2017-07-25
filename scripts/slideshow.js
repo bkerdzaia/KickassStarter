@@ -50,10 +50,27 @@ var exploreFn = function() {
 
 
 /* end functions for explore */
-
-
 var startProjectFn = () => {
     server.sendRequest('userId', function(res) {
         document.getElementById('userId').value = res;
     });
 };
+
+
+
+/*this function does all the stuff about project page*/
+function projectpage(data) {
+    document.getElementById("fundedInfo").innerText = 100*(data.project.budget/data.project.targetMoney) + "% out of 100% is invested"
+    document.getElementById("fundedMoney").innerText = "Current investments: " +  data.project.money + " USD"
+    document.getElementById("projjjName").innerText = data.project.name
+    document.getElementById("projjjDesc").innerText = data.project.description
+    document.getElementById("shareInfo").innerText = data.project.sharesPercenage
+    document.getElementById("fundrate").style.width = 100*(data.project.budget/data.project.targetMoney) +"%"
+
+    var cont = ""
+    for(var i = 0; i < data.cofounders.length; i++){
+        cont = cont + "<li><a href='#'>" + data.cofounders[i].cofounderName + "</a></li>"
+    }
+    document.getElementById("ulinvestors").innerHTML = cont;
+
+}
