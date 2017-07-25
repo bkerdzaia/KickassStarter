@@ -40,8 +40,6 @@ function listFilesTo(id, value) {
     document.getElementById(id).innerHTML = Mustache.render(projectListTemplate, data);
 }
 
-/* end functions for explore */
-
 var exploreFn = function() {
     document.getElementById('search').addEventListener('keypress', (event) => {
         if(event.which==13){
@@ -49,3 +47,6 @@ var exploreFn = function() {
         }
     });
 };
+
+
+/* end functions for explore */

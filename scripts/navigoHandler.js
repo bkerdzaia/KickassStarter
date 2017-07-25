@@ -10,6 +10,9 @@ class Server {
                 resultFn(request.responseText);
 //            resultFn(JSON.parse(request.responseText));
             }
+            if (request.status == 404) {
+                console.log(request);
+            }
         };
 
         request.onerror = function() {
