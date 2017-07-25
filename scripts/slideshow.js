@@ -214,7 +214,6 @@ function savePencilChanges() {
        el.style.display = 'block';
    }
    console.log(changeData);
-   server.sendJSONRequest('/profileUpdate', changeData, function(res){});
 }
 
 /*this function does all the stuff about profile page*/

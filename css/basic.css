@@ -25,7 +25,7 @@ main {
     background: purple;
     text-align: center;
     position: fixed;
-    width: 100%;    
+    width: 100%;
     height: 5rem;
     z-index: 9999999;
 }
@@ -273,7 +273,7 @@ main {
 .footer-column p {
     color: #cacaca;
     line-height: 2em;
-    font-size: 14px; 
+    font-size: 14px;
 }
 
 
@@ -363,6 +363,9 @@ main {
     margin: 20px;
     width: 20%;
     margin-left: 40%;
+}
+#start_project {
+    margin-left: 10rem;
 }
 
 #start_project h1{
