@@ -42,7 +42,7 @@
     margin: 0 auto;
     margin-bottom: 0.71429rem !important;
     width: 70%;
-    height: auto;   
+    height: auto;
 }
 
 .btn-round:hover {
@@ -56,7 +56,7 @@
     margin-right: 0.5em;
 }
 
-.row {    
+.row {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -100,7 +100,7 @@
     display: -webkit-box!important;
     display: -webkit-flex!important;
     display: -ms-flexbox!important;
-    display: flex!important;   
+    display: flex!important;
     -webkit-box-align: center!important;
     -webkit-align-items: center!important;
     -ms-flex-align: center!important;
@@ -268,16 +268,16 @@
     padding-bottom: 0px !important;
     border-width: 0 !important;
     border-bottom: solid 1px transparent !important;
-    
+
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
-    
+
     padding-right: 0.9375rem;
     padding-left: 0.9375rem;
-    
+
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
@@ -285,7 +285,7 @@
 .list-elem-header {
     margin-bottom: 0 !important;
     text-align: right!important;
-    
+
     -webkit-align-self: center!important;
     -ms-flex-item-align: center!important;
     -ms-grid-row-align: center!important;
@@ -295,10 +295,10 @@
     -ms-flex: 0 0 calc(25% - 5rem);
     flex: 0 0 calc(25% - 5rem);
     max-width: calc(25% - 5rem);
-    
+
     position: relative;
     width: 100%;
-    
+
     padding-left: 1rem;
     padding-right: 4rem;
 }
@@ -324,18 +324,18 @@
     position: relative;
     width: 100%;
     min-height: 1px;
-    
+
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 calc(75% - 3.4rem);
     -ms-flex: 0 0 calc(75% - 3.4rem);
     flex: 0 0 calc(75% - 3.4rem);
     max-width: calc(75% - 3.4rem);
-    
+
     -webkit-align-self: center!important;
     -ms-flex-item-align: center!important;
     -ms-grid-row-align: center!important;
     align-self: center!important;
-    
+
     padding-left: 2.4rem;
     padding-right: 1rem;
 }
@@ -401,11 +401,12 @@
 }
 
 .tabs-list-item-content {
+    cursor: pointer;
     text-decoration: none;
     outline: none;
     transition-property: color, background-color, border-color;
     transition-duration: .2s;
-    transition-timing-function: ease-in;    
+    transition-timing-function: ease-in;
     display: block;
     padding: .5em 1em;
 }
@@ -416,7 +417,7 @@
 }
 
 .tabs-content {
-    
+
 }
 
 .tabs-pane {
@@ -489,7 +490,7 @@ input.tabs-pan-list-item-body:focus {
 }
 
 .tabs-pan-list-item-header {
-    
+
     display: inline-block!important;
     color: #333 !important;
     width: 200px !important;
@@ -617,7 +618,7 @@ input.tabs-pan-list-item-body:focus {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    
+
     display: block;
     width: 100%;
     padding: .5rem .75rem;
@@ -630,19 +631,19 @@ input.tabs-pan-list-item-body:focus {
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.15);
     border-right: 0!important;
-    
+
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    
-    
+
+
     padding-right: 0!important;
     padding-left: 1rem;
     padding-top: 0.92857rem !important;
     padding-bottom: 0.92857rem !important;
-    
+
     outline: none;
 }
 
@@ -668,7 +669,7 @@ input.tabs-pan-list-item-body:focus {
     -ms-flex-pack: center;
     justify-content: center;
 
-    
+
     padding: .5rem .75rem;
     margin-bottom: 0;
     font-size: 1rem;
@@ -678,12 +679,12 @@ input.tabs-pan-list-item-body:focus {
     border: 1px solid rgba(0,0,0,.15);
     white-space: nowrap;
     vertical-align: middle;
-    
+
     min-width: 38px;
     background-color: transparent;
     border-color: #ccc;
     transition: border-color .15s ease-in-out 0s;
-    
+
     background-color: #fff !important;
     color: #bbb !important;
     border-radius: 0 !important;

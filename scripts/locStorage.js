@@ -34,12 +34,10 @@ function sendId(id) {
 }
 
 if (!localStorage.getItem("userId")) {
-    console.log('fsddf');
     server.sendRequest('/userId', function(res) {
         if (!res) {
             return;
         }
-        console.log('res',res);
         localStorage.setItem("userId", res);
         sendId(res);
     });

@@ -68,7 +68,10 @@ router
     .on({
         'profile/:id': function(params) {
             updateContent("profile.html", function(data) {
-                setContent(data);
+                console.log(params.id);
+                server.sendJSONRequest('profile', {"userId": params.id}, function(usr){
+                    setContent(data);
+                });
             });
         },
         'explore': function() {
@@ -104,10 +107,7 @@ router
         'profsettings': function() {
             updateContent("profile-settings.html", function(data) {
                 setContent(data);
-                drop(data);
-                getActiveElem(data);
-                tabHandle();
-                editPencilListener();
+                profileSettingsFn();
             });
         },
         'project': function() {
