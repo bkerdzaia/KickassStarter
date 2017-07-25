@@ -69,15 +69,15 @@ app.post('/projectAdd', function (req, res) {
     project = new Project({
         name: req.body.name,
         description: req.body.description,
-        photo: req.body.photo,
+        photo: req.body.image,
         category: req.body.category,
         created_at: date + " " + time,
-        enddate: req.body.enddate,
+        enddate: req.body.endDate,
         targetMoney:req.body.money,
         budget: 0,
         info: req.body.content,
-        author: req.body.couserId,
-        sharesPercenage: req.body.sharespercentage,
+        author: req.body.userId,
+        sharesPercenage: req.body.sharesPercentage,
         numvisits: 0
     });
 
@@ -122,6 +122,10 @@ app.get('projectsList', function (req, res) {
         }
     });
 
+});
+
+app.get('/userId', function (req, res) {
+    res.send(user._id);
 });
 
 app.listen(8080);
