@@ -41,7 +41,7 @@
         "content": "project content",
         "money": "project target money",
         "image": "project image/jpg",
-        "shearspersentages": "parcentage"
+        "sharesPercenage": "parcentage"
     }
 
 }
