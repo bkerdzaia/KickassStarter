@@ -37,7 +37,7 @@ app.post('/signup', function (req, res) {
             console.log("user successfuly saved");
     });
 
-    res.sendFile(path.join(__dirname + '/../index.html'));
+    res.redirect('/');
 
 });
 
