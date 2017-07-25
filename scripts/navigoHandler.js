@@ -1,5 +1,4 @@
 
-
 class Server {
     sendRequest(url, resultFn) {
         var request = new XMLHttpRequest();
@@ -10,6 +9,9 @@ class Server {
                 // Success!
                 resultFn(request.responseText);
 //            resultFn(JSON.parse(request.responseText));
+            } else {
+                // We reached our target server, but it returned an error
+
             }
         };
 
@@ -25,95 +27,43 @@ var router = new Navigo(null, true);
 var server = new Server();
 var Mustache;
 
-var files = {
-    explore: ["explore-del.mustache", "project_list.mustache"]
-};
-
-var contents = {};
-
-function updateContent(filename, onLoadFn) {
-    if (contents[filename]) {
-        onLoadFn(contents[filename].page);
-        return;
-    }
-    server.sendRequest(filename, (data) => {
-        contents[filename] = { page: data };
-        onLoadFn(data);
-    });
-}
-
-
 router
     .on({
+        'startproject': function() {
+            server.sendRequest("startproject.html", function(data) {
+                setContent(data);
+            });
+        },
         'profile': function() {
-            updateContent("profile.html", function(data) {
+            server.sendRequest("profile.html", function(data) {
                 setContent(data);
             });
         },
         'explore': function() {
-            updateContent(files.explore[0], function(data) {
-                var view = {
-                    categories: [
-                        "Art", "Food", "Tech", "Finance"
-                    ],
-                    projectsList: [
-                        {
-                            category: "Food",
-                            name: "project name",
-                            content: "this is content of new project",
-                            image: "images/avatar.jpg",
-                            owner: {
-                                name: "owner name",
-                                avatar: "images/proj1.jpg"
-                            }
-                        },
+            server.sendRequest("explore-del.html", function(data) {
 
-                        {
-                            category: "Art",
-                            name: "my project name2",
-                            content: "this is another content of new project",
-                            image: "images/avatar.jpg",
-                            owner: {
-                                name: "owner name2",
-                                avatar: "images/proj1.jpg"
-                            }
-                        },
-
-                        {
-                            category: "Art",
-                            name: "racxa project name2",
-                            content: "this is another content of new project",
-                            image: "images/avatar.jpg",
-                            owner: {
-                                name: "owner name2",
-                                avatar: "images/proj1.jpg"
-                            }
-                        }
-                    ]
-                };
-                updateContent(files.explore[1], (projectListTempl)=> {
-                        // sendRequest("/projectsList", function(view) {
-                            contents[files.explore[0]].data = view;
-                            setContent(Mustache.render(data, view, {
-                                project_list: projectListTempl
-                            }));
-                            exploreFn();
-                        // });
+                server.sendRequest("/projectsList", function(view) {
+                    setContent(Mustache.render(data, view));
                 });
             });
         },
         'login': function() {
-            updateContent("login.html", function(data) {
+            server.sendRequest("login.html", function(data) {
+                setContent(data);
+            });
+        },
+        'profsettings': function() {
+            server.sendRequest("profile-settings.html", function(data) {
                 setContent(data);
             });
         },
         'signup': function() {
-            updateContent("signup.html", function(data) {
+            server.sendRequest("signup.html", function(data) {
                 setContent(data);
             });
         },
-        'startproject': function() {
-            updateContent("startproject.html", function(data) {
+        'project': function() {
+            server.sendRequest("project.html", function(data) {
                 setContent(data);
             });
         },
@@ -141,26 +91,36 @@ function display(path) {
                     <img class="mySlides" src="./images/sl1.jpg" style="display:none;">
                     <img class="mySlides" src="./images/sl2.jpg" style="display:none;">
                 </div>
-
                 <div class="center">
-                    <a class="prevNextButton" onclick="plusDivs(-1)"> Prev</a>
-                    <a class="prevNextButton" onclick="plusDivs(1)">Next </a>
+                    <button class="button" onclick="plusDivs(1)"><span>Next </span></button>
                 </div>
                 </div>
-
                 <div class="border"></div>
-
                 <div class="mfunded">
-                <a><h3>Invested & Started Businesses</h3></a>
-                <a>
-                    <img src="./images/proj1.jpg" style="float:left">
-                </a>
-                <div>
-                    <h3>Project Description & Title & ...</h3>
-                    <p>This SHit is project description</p>
+                    <a><h1>Invested & Started Businesses</h1></a>
+                    <div class="project_main">
+                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
+                        <a>
+                            <img src="./images/proj1.jpg">
+                        </a>
+                        <p>This SHit is project description</p>
+                    </div>
+                    <div class="project_main">
+                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
+                        <a>
+                            <img src="./images/proj1.jpg">
+                        </a>
+                        <p>This SHit is project description</p>
+                    </div>
+                    </div><div class="project_main">
+                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
+                        <a>
+                            <img src="./images/proj1.jpg">
+                        </a>
+                        <p>This SHit is project description</p>
+                    </div>
                 </div>
             </div>
-
             <div class="border" style="float: left"></div>`);
     }
 }

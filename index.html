@@ -41,18 +41,17 @@
 </div>
 
 <!--<script type="text/javascript" src="./scripts/Server.js"></script>-->
-<script style="text/script" src="./scripts/Server.js"></script>
 
 
 <script>
-//    if(user.logedin == true){
-//        document.getElementById("um_login").innerHTML = "Profile Settings";
-//        document.getElementById("um_login").href = "profsettings";
-//        document.getElementById("um_sign").innerHTML = "Logout";
-//        document.getElementById("um_sign").href = "logout";
-//        document.getElementById("myprofile").innerHTML = "My Profile";
-//        document.getElementById("myprofile").href = "profile";
-//    }
+    if(user.logedIn === false){
+        document.getElementById("um_login").innerHTML = "Profile Settings";
+        document.getElementById("um_login").href = "profsettings";
+        document.getElementById("um_sign").innerHTML = "Logout";
+        document.getElementById("um_sign").href = "logout";
+        document.getElementById("myprofile").innerHTML = "My Profile";
+        document.getElementById("myprofile").href = "profile";
+    }
 </script>
 
 <!-- BEGIN facebook slider -->
