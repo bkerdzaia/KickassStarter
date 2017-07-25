@@ -163,6 +163,8 @@ app.get('/project', function (req, res) {
                     }
                 })
             }
+
+            res.send(projectjson);
         }
     });
 });
