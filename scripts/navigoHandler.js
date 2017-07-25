@@ -148,14 +148,14 @@ function display(path) {
                 <div class="mfunded">
                     <a><h1>Invested & Started Businesses</h1></a>
                     <div class="project_main">
-                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
+                        <a data-navigo><h3>Project Description & Title & ...</h3></a>
                         <a>
                             <img src="./images/proj1.jpg">
                         </a>
                         <p>This SHit is project description</p>
                     </div>
                     <div class="project_main">
-                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
+                        <a data-navigo><h3>Project Description & Title & ...</h3></a>
                         <a>
                             <img src="./images/proj1.jpg">
                         </a>
