@@ -56,7 +56,7 @@ app.post('/login', function (req, res) {
 
                 this.user = usr;
 
-                res.sendFile(path.join(__dirname + '/../index.html'));
+                res.redirect('/');
             }
         });
 
@@ -88,7 +88,7 @@ app.post('/projectAdd', function (req, res) {
             console.log("project successfuly saved");
     });
 
-    res.sendFile(path.join(__dirname + '/../startproject.html'));
+    res.redirect('/#/startproject');
 
 });
 
