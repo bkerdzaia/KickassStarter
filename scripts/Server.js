@@ -17,12 +17,21 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/../index.html'));
 });
 
+function toHex(str) {
+    var result = '';
+    for (var i=0; i<str.length; i++) {
+        result += str.charCodeAt(i).toString(16);
+    }
+    return result;
+}
+
 var user;
 var project;
 
 app.post('/signup', function (req, res) {
 
     user = new User({
+        _id: toHex(req.body.email),
         username: req.body.username,
         password: req.body.password,
         email: req.body.email,
@@ -67,19 +76,21 @@ app.post('/projectAdd', function (req, res) {
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     project = new Project({
+        _id: toHex(date),
         name: req.body.name,
         description: req.body.description,
         photo: req.body.image,
         category: req.body.category,
         created_at: date + " " + time,
         enddate: req.body.endDate,
-        targetMoney:req.body.money,
-        budget: 0,
-        info: req.body.content,
-        author: mongoose.Schema.Types.ObjecId(req.body.userId),
-        sharesPercenage: req.body.sharesPercentage,
-        numvisits: 0
+        targetMoney: req.body.money,
+        Budget: 0,
+        Info: req.body.content,
+        author: req.body.userId,
+        sharesPercenage: req.body.sharesPercenage,
+        numVisits: 0
     });
+    console.log(project.author);
 
     project.save(function (err) {
         if(err)
@@ -88,18 +99,20 @@ app.post('/projectAdd', function (req, res) {
             console.log("project successfuly saved");
     });
 
-    User.find({_id: project.author}, function (err, usr) {
+    res.redirect('/#/startproject');
+
+    User.find({_id: req.body.userId}, function (err, usr) {
+        console.log(usr);
         if(err) console.log("can't find author");
         else{
-            usr.createdProjects.push(project._id);
+            console.log(typeof usr[0].createdProjects);
+            usr[0].createdProjects.push(toHex(date));
         }
 
         usr.save(function (err) {
-           if(err) console.log("can't save updated user");
+            if(err) console.log("can't save updated user");
         });
     });
-
-    res.redirect('/#/startproject');
 
 });
 
@@ -186,6 +199,10 @@ app.get('/userId', function (req, res) {
     } else {
         res.send(null);
     }
+});
+
+app.get('/logout', function (req, res) {
+    user = null;
 });
 
 app.listen(8080);
