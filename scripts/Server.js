@@ -43,18 +43,18 @@ app.post('/signup', function (req, res) {
 
 app.post('/login', function (req, res) {
     User.findOne({email: req.body.email, password: req.body.password},
-        function(err, user) {
-            if(err) res.send("login error", 404);
+        function(err, usr) {
+            if(err || !usr) res.send("login error", 404);
             else{
-                user.logedIn = true;
-                user.save(function (err) {
+                usr.logedIn = true;
+                usr.save(function (err) {
                     if(err)
                         console.log("user saving error", err);
                     else
                         console.log("user successfuly saved");
                 });
 
-                this.user = user;
+                this.user = usr;
 
                 res.sendFile(path.join(__dirname + '/../index.html'));
             }
@@ -95,7 +95,7 @@ app.post('/projectAdd', function (req, res) {
 app.get('projectsList', function (req, res) {
 
     Project.find(function (err, projectlist) {
-        if(err) console.log("Can't get projects list");
+        if(err || !projectlist) console.log("Can't get projects list");
         else{
             var projectsjson = {
                 projectlists : []
@@ -104,16 +104,20 @@ app.get('projectsList', function (req, res) {
             for(var i=0; i<projectlist.length; i++){
                 var proj = projectlist[i];
                 var uid = proj.author;
-                var us = User.find({_id: uid});
-                projectsjson.projectlists.push({
-                    category: proj.category,
-                    name: proj.name,
-                    content: proj.info,
-                    image: proj.photo,
-                    owner: {
-                        uId: uid,
-                        name: us.name,
-                        avatar: us.photo
+                User.find({_id: uid}, function (err, usr) {
+                    if(err || !usr) console.log("can't get user");
+                    else{
+                        projectsjson.projectlists.push({
+                            category: proj.category,
+                            name: proj.name,
+                            content: proj.info,
+                            image: proj.photo,
+                            owner: {
+                                uId: uid,
+                                name: usr.name,
+                                avatar: usr.photo
+                            }
+                        });
                     }
                 });
             }
@@ -126,10 +130,10 @@ app.get('projectsList', function (req, res) {
 
 app.get('/profile', function (req, res) {
     var uid = req.body.userId;
-    User.find({_id: uid}, function(err, user){
-        if(err) res.send("invalid userId", 404);
+    User.find({_id: uid}, function(err, usr){
+        if(err || !usr) res.send("invalid userId", 404);
         else{
-            res.send(user);
+            res.send(usr);
         }
     });
 });
@@ -137,9 +141,28 @@ app.get('/profile', function (req, res) {
 app.get('/project', function (req, res) {
     var prId = req.body.projectId;
     Project.find({_id: prId}, function (err, project) {
-        if(err) res.send("invalid projectID", 404);
+        if(err || !project) res.send("invalid projectID", 404);
         else{
-            res.send(project);
+            var projectjson = {
+                project: Project,
+                author: String,
+                cofounders: []
+            };
+            projectjson.project = project;
+            projectjson.author = project.author;
+            var cofounderlist = project.cofounders;
+            for(var i=0; i<cofounderlist.length; i++){
+                var coId = cofounderlist[i];
+                User.find({_id: coId}, function (err, usr) {
+                    if(err || !usr) console.log("no user apeared");
+                    else{
+                        projectjson.cofounders.push({
+                            cofounderId: coId,
+                            cofounderName: usr.name
+                        });
+                    }
+                })
+            }
         }
     });
 });
