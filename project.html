@@ -1,138 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>KickAssStarter</title>
-    <link rel="stylesheet" href="./css/basic.css">
-    <link rel="stylesheet" href="./css/explore.css">
-    <link rel="stylesheet" href="./css/basic.css">
-    <link rel="stylesheet" href="css/login_signup.css">
 
-    <!-- here I use only font nothing more :3-->
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <div style="margin-left: 200px; float: left; width: 60%">
+        <h1 id="projjjName">Project Name</h1>
+        <img width="70%" src="images/sl3.jpg">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <div style="margin-top: 20px; margin-bottom: 40px">
+            <a class="tabs-pan-buttons-button tabs-pan-buttons-button-violet" href="#">Invest Project</a>
+            <p id="shareInfo"> No info about project share amount</p>
+            <p id="fundedInfo"> No info about project funds</p>
+            <div class="fundeddd">
+                <div class="rating-bar">
+                    <div id="fundrate">
+                        <span class="animate green"></span>
+                    </div>
+                </div>
+            </div>
+            <p id="fundedMoney">Current investments: 0 USD</p>
+            <p id="projjjDesc">Whole description text must
+                be here, but in this case no project or no project
+                description was found.
+            </p>
+        </div>
+    </div>
+    <div style="width: 20%; margin-top: 30px; float: left">
+        <h3>Project Creator: David Chanturia</h3>
+        <h3>Project Investors list:</h3>
+        <ul id="ulinvestors">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-<div id="umenu">
-    <a href="index" data-navigo>
-        <img src="./images/kaslogo.png">
-    </a>
-    <a href="index" data-navigo>
-        Home
-    </a>
-    <a href="explore" data-navigo>
-        Explore
-    </a>
-    <a href="startproject" data-navigo>
-        Start Project
-    </a>
-    <a id="myprofile" href="profile" data-navigo>
-    </a>
-    <a id="um_login" href="login" data-navigo>
-        Login
-    </a>
-    <a id="um_sign" href="signup" data-navigo>
-        Sign Up
-    </a>
-</div>
+        </ul>
+    </div>
 
 <script>
-    var loginnn = true;
+//    document.getElementById("fundedInfo").innerText = 100*(data.project.budget/data.project.targetMoney) + "% out of 100% is invested"
+//    document.getElementById("fundedMoney").innerText = "Current investments: " +  data.project.money + " USD"
+//    document.getElementById("projjjName").innerText = data.project.name
+//    document.getElementById("projjjDesc").innerText = data.project.description
+//    document.getElementById("shareInfo").innerText = data.project.sharesPercenage
+//    document.getElementById("fundrate").style.width = 100*(data.project.budget/data.project.targetMoney) +"%"
 
-    if(loginnn){
-        document.getElementById("um_login").innerHTML = "Profile Settings";
-        document.getElementById("um_login").href = "profsettings";
-        document.getElementById("um_sign").innerHTML = "Logout";
-        document.getElementById("um_sign").href = "logout";
-        document.getElementById("myprofile").innerHTML = "My Profile";
-        document.getElementById("myprofile").href = "profile";
+    var cont = ""
+
+//    for(var i = 0; i < data.cofounders.length; i++){
+//        cont = cont + "<li><a href='#'>" + data.cofounders[i].cofounderName + "</a></li>")
+//    }
+
+    for(var i = 0; i < 8; i++){
+        cont = cont + "<li><a href='#'> data chanturia" + i + "</a></li>"
+        cont = cont + "<li><a href='#'> koka buachidze" + i + "</a></li>"
+        cont = cont + "<li><a href='#'> baduraaaaaaaaa" + i + "</a></li>"
     }
+    document.getElementById("ulinvestors").innerHTML = cont;
 </script>
-
-<!-- BEGIN facebook slider -->
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<nav class="fb">
-    <ul>
-        <li><a href="http://facebook.com/chanturia.data"><strong>Facebook </strong><i class="fa fa-facebook"></i></a>
-        </li>
-    </ul>
-</nav>
-<!-- END facebook slider -->
-
-
-<main id="content">
-    <img width="40%" height="300px" src="images/sl3.jpg">
-    <div class="fundeddd">
-        <div class="rating-bar">
-            <div id="fundrate">
-                <span class="animate green"></span>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById("fundrate").style.width = 30 /*100*(data.project.budget/data.project.targetMoney)*/ +"%"
-    </script>
-</main>
-
-
-<footer>
-    <div id="footer">
-        <div class="footer-column">
-            <h3>FAQ</h3>
-            <div class="list-column">
-                <ul>
-                    <li><a href="">Who we are?</a></li>
-                    <li><a href="">What is a life?</a></li>
-                    <li><a href="">How to pass paradigms?</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-column">
-            <h3>More About Us</h3>
-            <p>We are a team of KickAssStarter!</p>
-            <p>- Who we are? - Students!</p>
-            <p>- What we want? - 91%-s!</p>
-        </div>
-        <div class="footer-column">
-            <h3>Start Project</h3>
-            <p>Start project with us!
-                With KickAssStarter you can crowdfund your project,
-                with every single "backer" becoming your investor.
-            </p>
-            <p>
-                But also with as little as 1$, you can buy company shares
-                and become an investor.
-            </p>
-        </div>
-        <div class="footer-column">
-            <h3>Discover</h3>
-            <div class="list-column">
-                <ul>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Food</a></li>
-                    <li><a href="">Tech</a></li>
-                    <li><a href="">Finance</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="copy-right">
-        Copyright &copy; 2017 <a href="#">KickAssStarter</a>
-    </div>
-
-</footer>
-
-<script src="./libs/navigo.min.js"></script>
-<script src="./scripts/slideshow.js"></script>
-
-<script src="./node_modules/mustache/mustache.min.js"></script>
-
-</body>
-
-</html>
