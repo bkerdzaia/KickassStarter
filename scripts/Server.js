@@ -76,7 +76,7 @@ app.post('/projectAdd', function (req, res) {
         targetMoney:req.body.money,
         budget: 0,
         info: req.body.content,
-        author: req.body.userId,
+        author: mongoose.Schema.Types.ObjecId(req.body.userId),
         sharesPercenage: req.body.sharesPercentage,
         numvisits: 0
     });
@@ -92,7 +92,7 @@ app.post('/projectAdd', function (req, res) {
 
 });
 
-app.get('projectsList', function (req, res) {
+app.get('/projectsList', function (req, res) {
 
     Project.find(function (err, projectlist) {
         if(err || !projectlist) console.log("Can't get projects list");
@@ -100,13 +100,19 @@ app.get('projectsList', function (req, res) {
             var projectsjson = {
                 projectlists : []
             };
-
+            console.log(projectlist);
+            console.log(projectlist.length);
             for(var i=0; i<projectlist.length; i++){
+                console.log("aq shemovida");
                 var proj = projectlist[i];
+                console.log(proj);
                 var uid = proj.author;
+                console.log(uid);
                 User.find({_id: uid}, function (err, usr) {
-                    if(err || !usr) console.log("can't get user");
+                    console.log(usr);
+                    if(err || !usr || usr===[]) console.log("can't get user");
                     else{
+                        console.log("aqac shemovida");
                         projectsjson.projectlists.push({
                             category: proj.category,
                             name: proj.name,
@@ -161,7 +167,7 @@ app.get('/project', function (req, res) {
                             cofounderName: usr.name
                         });
                     }
-                })
+                });
             }
 
             res.send(projectjson);
@@ -170,7 +176,11 @@ app.get('/project', function (req, res) {
 });
 
 app.get('/userId', function (req, res) {
-    res.send(user._id);
+    if(user) {
+        res.send(user._id);
+    } else {
+        res.send(null);
+    }
 });
 
 app.listen(8080);
