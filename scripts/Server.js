@@ -44,7 +44,7 @@ app.post('/signup', function (req, res) {
 app.post('/login', function (req, res) {
     User.findOne({email: req.body.email, password: req.body.password},
         function(err, usr) {
-            if(err || !usr) res.sendfile(path.join(__dirname + '/../login.html'));
+            if(err || !usr) res.redirect('/#/login');
             else{
                 usr.logedIn = true;
                 usr.save(function (err) {
