@@ -1,0 +1,24 @@
+{{#projectsList}}
+<li class="content-item">
+    <div class="product-img">
+        <img class="product-img-img" src="{{image}}">
+    </div>
+    <div class="product-info">
+        <div class="product-text">
+            <a class="product-category" href="#">{{category}}</a>
+            <div class="product-name">
+                <a class="product-name-link" href="#">{{name}}</a>
+                {{content}}
+            </div>
+
+            <div class="product-owner">
+                <img class="product-owner-avatar" src="{{owner.avatar}}">
+                <div class="product-owner-content">
+                    <span class="card-color">by</span>
+                    <a class="product-owner-name" href="#">{{owner.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+{{/projectsList}}
