@@ -106,6 +106,11 @@ router
                 setContent(data);
             });
         },
+        'project': function() {
+            updateContent("project.html", function(data) {
+                setContent(data);
+            });
+        },
         '*': function() {
             console.log('disp home');
             display('home');
