@@ -1,7 +1,7 @@
 
 ::selection {
     color: white;
-    background-color: blueviolet;  /* TODO change color of tect selection */
+    background-color: purple;  /* TODO change color of tect selection */
 }
 
 .image-container img {
@@ -77,12 +77,14 @@
 }
 
 .content {
+    padding-bottom: 50px;
+    padding-top: 50px;
+    width: 70%;
+    margin-left: 30%;
     position: relative;
-    margin-left: auto;
     margin-right: auto;
     padding-right: 1em;
     padding-left: 1em;
-    width: 1100px;
     max-width: 100%;
 }
 
@@ -351,7 +353,7 @@
     display: block!important;
     width: 1rem !important;
     height: 1rem;
-    background-color: blueviolet!important;
+    background-color: purple!important;
     border: solid 1px transparent !important;
     border-width: 4px !important;
     border-color: #eee !important;
@@ -377,7 +379,7 @@
 .tabs-border {
     border-bottom: solid 1px transparent !important;
     border-bottom-width: 2px !important;
-    border-color: blueviolet!important;
+    border-color: purple!important;
 }
 
 .tabs-list {
@@ -410,7 +412,7 @@
 
 .active {
     color: white;
-    background-color: blueviolet;
+    background-color: purple;
 }
 
 .tabs-content {
@@ -556,7 +558,7 @@ input.tabs-pan-list-item-body:focus {
 
 .tabs-pan-buttons-button-violet {
     color: #fff;
-    background-color: blueviolet;
+    background-color: purple;
 }
 
 .tabs-pan-buttons-button-violet:hover {
@@ -603,7 +605,7 @@ input.tabs-pan-list-item-body:focus {
 
 .form-elem-input-parent.input-focus *,
 .form-elem-input-parent.input-focus *:focus {
-    border-color: blueviolet !important;
+    border-color: purple !important;
 }
 
 
@@ -648,7 +650,7 @@ input.tabs-pan-list-item-body:focus {
 .form-elem-input:focus {
     z-index: auto;
     color: #555;
-    border-color: blueviolet;
+    border-color: purple;
 }
 
 .form-elem-input-icon {
@@ -691,7 +693,7 @@ input.tabs-pan-list-item-body:focus {
 input:focus {
     outline: none;
     border-style: solid;
-    border-color: blueviolet !important;
+    border-color: purple !important;
 }
 
 
@@ -702,8 +704,23 @@ input:focus {
 }
 
 .image-container {
-    width: 70%;
-    height: auto;   
-    margin: 0 auto;
-    margin-bottom: 1em;
+    height: auto;
+    float: left;
+    margin: 30px;
+    width: 17%;
+    margin-top: 5px;"
+}
+
+/*newly added*/
+.image-container {
+    width: 100px;
+    height: 100px;
+}
+.image-container > img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #dedede;
+    border-radius: 15px;
+    background: #fff;
+    padding: 7px;
 }

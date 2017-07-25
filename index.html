@@ -30,16 +30,40 @@
     <a href="startproject" data-navigo>
         Start Project
     </a>
-    <a>
-        About Us
+    <a id="myprofile" href="profile" data-navigo>
     </a>
-    <a href="login" data-navigo>
+    <a id="um_login" href="login" data-navigo>
         Login
     </a>
-    <a href="signup" data-navigo>
+    <a id="um_sign" href="signup" data-navigo>
         Sign Up
     </a>
 </div>
+
+<!--<script type="text/javascript" src="./scripts/Server.js"></script>-->
+<script style="text/script" src="./scripts/Server.js"></script>
+
+
+<script>
+//    if(user.logedin == true){
+//        document.getElementById("um_login").innerHTML = "Profile Settings";
+//        document.getElementById("um_login").href = "profsettings";
+//        document.getElementById("um_sign").innerHTML = "Logout";
+//        document.getElementById("um_sign").href = "logout";
+//        document.getElementById("myprofile").innerHTML = "My Profile";
+//        document.getElementById("myprofile").href = "profile";
+//    }
+</script>
+
+<!-- BEGIN facebook slider -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="fb">
+    <ul>
+        <li><a href="http://facebook.com/chanturia.data"><strong>Facebook </strong><i class="fa fa-facebook"></i></a>
+        </li>
+    </ul>
+</nav>
+<!-- END facebook slider -->
 
 
 <main id="content">
@@ -49,8 +73,31 @@
 <footer>
     <div id="footer">
         <div class="footer-column">
+            <h3>FAQ</h3>
+            <div class="list-column">
+                <ul>
+                    <li><a href="">Who we are?</a></li>
+                    <li><a href="">What is a life?</a></li>
+                    <li><a href="">How to pass paradigms?</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-column">
             <h3>More About Us</h3>
-            <p>text</p>
+            <p>We are a team of KickAssStarter!</p>
+            <p>- Who we are? - Students!</p>
+            <p>- What we want? - 91%-s!</p>
+        </div>
+        <div class="footer-column">
+            <h3>Start Project</h3>
+            <p>Start project with us!
+                With KickAssStarter you can crowdfund your project,
+                with every single "backer" becoming your investor.
+            </p>
+            <p>
+                But also with as little as 1$, you can buy company shares
+                and become an investor.
+            </p>
         </div>
         <div class="footer-column">
             <h3>Discover</h3>
@@ -58,19 +105,8 @@
                 <ul>
                     <li><a href="">Art</a></li>
                     <li><a href="">Food</a></li>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Food</a></li>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Food</a></li>
-                    <li><a href="">Art</a></li>
-                </ul>
-            </div>
-            <div class="list-column">
-                <ul>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Food</a></li>
-                    <li><a href="">Art</a></li>
+                    <li><a href="">Tech</a></li>
+                    <li><a href="">Finance</a></li>
                 </ul>
             </div>
         </div>
@@ -85,7 +121,6 @@
 <script src="./libs/navigo.min.js"></script>
 <script src="./scripts/navigoHandler.js"></script>
 <script src="./scripts/slideshow.js"></script>
-
 
 <script src="./node_modules/mustache/mustache.min.js"></script>
 

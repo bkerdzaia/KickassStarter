@@ -52,15 +52,53 @@ router
         },
         'explore': function() {
             updateContent(files.explore[0], function(data) {
+                var view = {
+                    categories: [
+                        "Art", "Food", "Tech", "Finance"
+                    ],
+                    projectsList: [
+                        {
+                            category: "Food",
+                            name: "project name",
+                            content: "this is content of new project",
+                            image: "images/avatar.jpg",
+                            owner: {
+                                name: "owner name",
+                                avatar: "images/proj1.jpg"
+                            }
+                        },
 
+                        {
+                            category: "Art",
+                            name: "my project name2",
+                            content: "this is another content of new project",
+                            image: "images/avatar.jpg",
+                            owner: {
+                                name: "owner name2",
+                                avatar: "images/proj1.jpg"
+                            }
+                        },
+
+                        {
+                            category: "Art",
+                            name: "racxa project name2",
+                            content: "this is another content of new project",
+                            image: "images/avatar.jpg",
+                            owner: {
+                                name: "owner name2",
+                                avatar: "images/proj1.jpg"
+                            }
+                        }
+                    ]
+                };
                 updateContent(files.explore[1], (projectListTempl)=> {
-                        sendRequest("/projectsList", function(view) {
+                        // sendRequest("/projectsList", function(view) {
                             contents[files.explore[0]].data = view;
                             setContent(Mustache.render(data, view, {
                                 project_list: projectListTempl
                             }));
                             exploreFn();
-                        });
+                        // });
                 });
             });
         },

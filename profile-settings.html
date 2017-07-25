@@ -1,34 +1,15 @@
 
 <head>
-    <title>profile</title>
-
-    <style>
-        .image-container {
-            width: 100px;
-            height: 100px;
-        }
-        .image-container > img {
-            width: 100%;
-            height: 100%;
-            border: 2px solid #dedede;
-            border-radius: 15px;
-            background: #fff;
-            padding: 7px;
-        }
-    </style>
+    <title>profile settings</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
     <link rel="stylesheet" href="./css/profile.css">
 </head>
 
-<body class="profile-body">
-
-
+<body>
 <div class="content">
     <div class="row">
-
         <div class="settings-container">
-
             <ul class="tabs-border tabs-list">
                 <li class="tabs-list-item">
                     <a class="tabs-list-item-content active" href="#">Edit Profile</a>
@@ -37,15 +18,15 @@
                 <li class="tabs-list-item">
                     <a class="tabs-list-item-content" href="#">Other</a>
                 </li>
-
             </ul>
-
             <div class="tabs-content">
-
                 <div class="tabs-pane tab-show">
+                    <h2 class="tabs-pan-name">Manage your Name, Photo and Email Addresses</h2>
+                    <p>Below are name, email address and profile photo for your account.</p>
 
-                    <h2 class="tabs-pan-name">Manage your Name, ID and Email Addresses</h2>
-                    <p>Below are name, email addresse, contacts and more on file for your account.</p>
+                    <div id="imageDrop"; class="image-container" ondrop="drop(event)" ondragover="return false">
+                        <img src="images/avatar.jpg" alt="avatar">
+                    </div>
 
                     <ul class="tabs-pan-list">
                         <li class="tabs-pan-list-item">
@@ -53,11 +34,18 @@
                                 <strong class="tabs-pan-list-item-header">Name</strong>
                                 <span class="tabs-pan-list-item-body">John Doe</span>
                             </div>
-                                    
                                     <span>
                                         <i class="icon-pencil icon-pencil-style"></i>
                                     </span>
-
+                        </li>
+                        <li class="tabs-pan-list-item">
+                            <div class="tabs-pan-list-item-content">
+                                <strong class="tabs-pan-list-item-header">Email</strong>
+                                <span class="tabs-pan-list-item-body">John Doe</span>
+                            </div>
+                                    <span>
+                                        <i class="icon-pencil icon-pencil-style"></i>
+                                    </span>
                         </li>
                     </ul>
 
@@ -87,6 +75,32 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row form-elem">
+                            <label class="form-elem-label">New Password</label>
+                            <div class="form-elem-div">
+                                <div class="form-elem-input-parent">
+
+                                    <input class="form-elem-input" type="password" placeholder="New Password">
+
+                                    <div class="form-elem-input-icon">
+                                        <i class="icon-lock"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-elem">
+                            <label class="form-elem-label">Repeat New Password</label>
+                            <div class="form-elem-div">
+                                <div class="form-elem-input-parent">
+
+                                    <input class="form-elem-input" type="password" placeholder="Repeat New Password">
+
+                                    <div class="form-elem-input-icon">
+                                        <i class="icon-lock"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="tabs-pan-buttons">
                             <a class="tabs-pan-buttons-button tabs-pan-buttons-button-black tabs-pan-buttons-button-margin" href="#">Cancel</a>
@@ -102,10 +116,7 @@
     </div>
 </div>
 
-
-<div style="margin-top: 500px;" id="imageDrop" class="image-container" ondrop="drop(event)" ondragover="return false">
-    <img src="images/avatar.jpg" alt="avatar">
-</div>
+</body>
 
 <script>
 

@@ -34,7 +34,7 @@ var projectSchema = Schema({
     Info:{type: String},
     author:{type: mongoose.Schema.Types.ObjectId, ref:User},
     cofounders:[{id: mongoose.Schema.Types.ObjectId, money: Number}],
-    sharesPersenage: Number,
+    sharesPercenage: Number,
     numVisits: Number
 });
 
