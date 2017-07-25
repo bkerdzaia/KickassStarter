@@ -44,7 +44,7 @@ app.post('/signup', function (req, res) {
 app.post('/login', function (req, res) {
     User.findOne({email: req.body.email, password: req.body.password},
         function(err, usr) {
-            if(err || !usr) res.send("login error", 404);
+            if(err || !usr) res.sendfile(path.join(__dirname + '/../login.html'));
             else{
                 usr.logedIn = true;
                 usr.save(function (err) {
