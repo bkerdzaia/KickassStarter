@@ -69,6 +69,7 @@ router
         'profile/:id': function(params) {
             updateContent("profile.html", function(data) {
                 setContent(data);
+                projectpage(data);
             });
         },
         'explore': function() {

@@ -87,3 +87,11 @@ function projectpage(data) {
     document.getElementById("ulinvestors").innerHTML = cont;
 
 }
+
+/*this function does all the stuff about profile page*/
+function projectpage(data) {
+    document.getElementById("profName").innerText = data.user.name;
+    document.getElementById("profemail").innerText = data.user.email;
+    document.getElementById("profPhoto").innerText = data.project.photo;
+
+}
