@@ -80,6 +80,33 @@ main {
     margin-bottom: 20px;
 }
 
+
+/*how much project is funded rating bar starts here*/
+.fundeddd{
+    width:320px;
+    margin:0 auto;
+    width: 40%;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.rating-bar{
+    background:grey;
+    padding:3px;
+}
+.rating-bar span{
+    display:block;
+    height:15px;
+}
+.rating-bar, .rating-bar span {
+    border-radius:4px;
+}
+
+/* Used to color the bars */
+.green{ background:green; }
+
+/*how much project is funded rating bar ends here*/
+
 .mfunded {
     margin-left: 10%;
     margin-right: 10%;
