@@ -90,7 +90,6 @@ app.post('/projectAdd', function (req, res) {
         sharesPercenage: req.body.sharesPercenage,
         numVisits: 0
     });
-    console.log(project.author);
 
     project.save(function (err) {
         if(err)
@@ -99,20 +98,18 @@ app.post('/projectAdd', function (req, res) {
             console.log("project successfuly saved");
     });
 
-    res.redirect('/#/startproject');
-
     User.find({_id: req.body.userId}, function (err, usr) {
-        console.log(usr);
         if(err) console.log("can't find author");
         else{
-            console.log(typeof usr[0].createdProjects);
             usr[0].createdProjects.push(toHex(date));
         }
 
-        usr.save(function (err) {
+        usr[0].save(function (err) {
             if(err) console.log("can't save updated user");
         });
     });
+
+    res.redirect('/#/startproject');
 
 });
 
