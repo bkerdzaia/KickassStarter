@@ -9,9 +9,6 @@ class Server {
                 // Success!
                 resultFn(request.responseText);
 //            resultFn(JSON.parse(request.responseText));
-            } else {
-                // We reached our target server, but it returned an error
-
             }
         };
 
@@ -27,43 +24,95 @@ var router = new Navigo(null, true);
 var server = new Server();
 var Mustache;
 
+var files = {
+    explore: ["explore-del.mustache", "project_list.mustache"]
+};
+
+var contents = {};
+
+function updateContent(filename, onLoadFn) {
+    if (contents[filename]) {
+        onLoadFn(contents[filename].page);
+        return;
+    }
+    server.sendRequest(filename, (data) => {
+        contents[filename] = { page: data };
+        onLoadFn(data);
+    });
+}
+
+
 router
     .on({
-        'startproject': function() {
-            server.sendRequest("startproject.html", function(data) {
-                setContent(data);
-            });
-        },
         'profile': function() {
-            server.sendRequest("profile.html", function(data) {
+            updateContent("profile.html", function(data) {
                 setContent(data);
             });
         },
         'explore': function() {
-            server.sendRequest("explore-del.html", function(data) {
+            updateContent(files.explore[0], function(data) {
+                var view = {
+                    categories: [
+                        "Art", "Food", "Tech", "Finance"
+                    ],
+                    projectsList: [
+                        {
+                            category: "Food",
+                            name: "project name",
+                            content: "this is content of new project",
+                            image: "images/avatar.jpg",
+                            owner: {
+                                name: "owner name",
+                                avatar: "images/proj1.jpg"
+                            }
+                        },
 
-                server.sendRequest("/projectsList", function(view) {
-                    setContent(Mustache.render(data, view));
+                        {
+                            category: "Art",
+                            name: "my project name2",
+                            content: "this is another content of new project",
+                            image: "images/avatar.jpg",
+                            owner: {
+                                name: "owner name2",
+                                avatar: "images/proj1.jpg"
+                            }
+                        },
+
+                        {
+                            category: "Art",
+                            name: "racxa project name2",
+                            content: "this is another content of new project",
+                            image: "images/avatar.jpg",
+                            owner: {
+                                name: "owner name2",
+                                avatar: "images/proj1.jpg"
+                            }
+                        }
+                    ]
+                };
+                updateContent(files.explore[1], (projectListTempl)=> {
+                        // sendRequest("/projectsList", function(view) {
+                            contents[files.explore[0]].data = view;
+                            setContent(Mustache.render(data, view, {
+                                project_list: projectListTempl
+                            }));
+                            exploreFn();
+                        // });
                 });
             });
         },
         'login': function() {
-            server.sendRequest("login.html", function(data) {
-                setContent(data);
-            });
-        },
-        'profsettings': function() {
-            server.sendRequest("profile-settings.html", function(data) {
+            updateContent("login.html", function(data) {
                 setContent(data);
             });
         },
         'signup': function() {
-            server.sendRequest("signup.html", function(data) {
+            updateContent("signup.html", function(data) {
                 setContent(data);
             });
         },
-        'project': function() {
-            server.sendRequest("project.html", function(data) {
+        'startproject': function() {
+            updateContent("startproject.html", function(data) {
                 setContent(data);
             });
         },
@@ -75,7 +124,6 @@ router
     });
 
 router.resolve();
-
 
 function setContent(contentHtml) {
     var displayContent = document.getElementById('content');
