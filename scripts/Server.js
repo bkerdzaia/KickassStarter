@@ -54,7 +54,7 @@ app.post('/login', function (req, res) {
                         console.log("user successfuly saved");
                 });
 
-                this.user = usr;
+                user = usr;
 
                 res.redirect('/');
             }
@@ -88,6 +88,17 @@ app.post('/projectAdd', function (req, res) {
             console.log("project successfuly saved");
     });
 
+    User.find({_id: project.author}, function (err, usr) {
+        if(err) console.log("can't find author");
+        else{
+            usr.createdProjects.push(project._id);
+        }
+
+        usr.save(function (err) {
+           if(err) console.log("can't save updated user");
+        });
+    });
+
     res.redirect('/#/startproject');
 
 });
@@ -100,19 +111,13 @@ app.get('/projectsList', function (req, res) {
             var projectsjson = {
                 projectlists : []
             };
-            console.log(projectlist);
-            console.log(projectlist.length);
+
             for(var i=0; i<projectlist.length; i++){
-                console.log("aq shemovida");
                 var proj = projectlist[i];
-                console.log(proj);
                 var uid = proj.author;
-                console.log(uid);
                 User.find({_id: uid}, function (err, usr) {
-                    console.log(usr);
                     if(err || !usr || usr===[]) console.log("can't get user");
                     else{
-                        console.log("aqac shemovida");
                         projectsjson.projectlists.push({
                             category: proj.category,
                             name: proj.name,
