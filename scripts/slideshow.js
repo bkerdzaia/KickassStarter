@@ -88,6 +88,7 @@ function projectpage(data) {
 
 }
 
+
 var profileSettingsFn = () => {
 
        let elems = document.getElementsByClassName("form-elem-input");
@@ -214,4 +215,12 @@ function savePencilChanges() {
    }
    console.log(changeData);
    server.sendJSONRequest('/profileUpdate', changeData, function(res){});
+}
+
+/*this function does all the stuff about profile page*/
+function projectpage(data) {
+    document.getElementById("profName").innerText = data.user.name;
+    document.getElementById("profemail").innerText = data.user.email;
+    document.getElementById("profPhoto").innerText = data.project.photo;
+
 }

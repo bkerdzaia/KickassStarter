@@ -68,9 +68,11 @@ router
     .on({
         'profile/:id': function(params) {
             updateContent("profile.html", function(data) {
+
                 console.log(params.id);
                 server.sendJSONRequest('profile', {"userId": params.id}, function(usr){
                     setContent(data);
+                    projectpage(data);
                 });
             });
         },
@@ -153,13 +155,6 @@ function display(path) {
                         <p>This SHit is project description</p>
                     </div>
                     <div class="project_main">
-                        <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
-                        <a>
-                            <img src="./images/proj1.jpg">
-                        </a>
-                        <p>This SHit is project description</p>
-                    </div>
-                    </div><div class="project_main">
                         <a href="project" data-navigo><h3>Project Description & Title & ...</h3></a>
                         <a>
                             <img src="./images/proj1.jpg">
