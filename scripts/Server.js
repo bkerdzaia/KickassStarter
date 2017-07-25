@@ -44,7 +44,7 @@ app.post('/signup', function (req, res) {
 app.post('/login', function (req, res) {
     User.findOne({email: req.body.email, password: req.body.password},
         function(err, user) {
-            if(err) res.send("Incorrect email or password");
+            if(err) res.send("login error", 404);
             else{
                 user.logedIn = true;
                 user.save(function (err) {
@@ -122,6 +122,26 @@ app.get('projectsList', function (req, res) {
         }
     });
 
+});
+
+app.get('/profile', function (req, res) {
+    var uid = req.body.userId;
+    User.find({_id: uid}, function(err, user){
+        if(err) res.send("invalid userId", 404);
+        else{
+            res.send(user);
+        }
+    });
+});
+
+app.get('/project', function (req, res) {
+    var prId = req.body.projectId;
+    Project.find({_id: prId}, function (err, project) {
+        if(err) res.send("invalid projectID", 404);
+        else{
+            res.send(project);
+        }
+    });
 });
 
 app.get('/userId', function (req, res) {
