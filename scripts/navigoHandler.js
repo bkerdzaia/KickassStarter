@@ -47,7 +47,7 @@ var server = new Server();
 var Mustache;
 
 var files = {
-    explore: ["explore-del.mustache", "project_list.mustache"]
+    explore: ["explore.mustache", "project_list.mustache"]
 };
 
 var contents = {};
@@ -66,7 +66,7 @@ function updateContent(filename, onLoadFn) {
 
 router
     .on({
-        'profile': function() {
+        'profile/:id': function(params) {
             updateContent("profile.html", function(data) {
                 setContent(data);
             });

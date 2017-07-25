@@ -32,11 +32,24 @@ function listFilesTo(id, value) {
     let data = {
         projectsList: []
     };
-    for (let el of projectListData.projectsList) {
-        if (el.name.startsWith(value)) {
-            data.projectsList.push(el);
-        }
-    }
+    var categories = ['Food', 'Art', 'Tech', 'Finance'];
+    categories = categories.filter((el) => {
+        var checkbox = document.getElementById(el);
+        checkbox.addEventListener('change', function(event) {
+            listFilesTo(id, value);
+        });
+        return checkbox.checked;
+    });
+    data.projectsList = projectListData.projectsList
+        .filter((el)=>{
+            if (!value || value === "") {
+                return true;
+            }
+            if (categories.length === 0) {
+                return el.name.match(value);
+            }
+            return el.name.match(value) && categories.indexOf(el.category)>=0;
+        });
     document.getElementById(id).innerHTML = Mustache.render(projectListTemplate, data);
 }
 
