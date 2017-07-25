@@ -10,9 +10,7 @@ class Server {
                 resultFn(request.responseText);
 //            resultFn(JSON.parse(request.responseText));
             }
-            if (request.status == 404) {
-                console.log(request);
-            }
+
         };
 
         request.onerror = function() {
@@ -20,6 +18,27 @@ class Server {
         };
 
         request.send();
+    }
+
+    sendJSONRequest(url, jsonData, resultFn) {
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+        request.setRequestHeader("Content-Type", "application/json");
+
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                // Success!
+                resultFn(request.responseText);
+//            resultFn(JSON.parse(request.responseText));
+            }
+
+        };
+
+        request.onerror = function() {
+            // There was a connection error of some sort
+        };
+
+        request.send(jsonData);
     }
 }
 
@@ -54,53 +73,15 @@ router
         },
         'explore': function() {
             updateContent(files.explore[0], function(data) {
-                var view = {
-                    categories: [
-                        "Art", "Food", "Tech", "Finance"
-                    ],
-                    projectsList: [
-                        {
-                            category: "Food",
-                            name: "project name",
-                            content: "this is content of new project",
-                            image: "images/avatar.jpg",
-                            owner: {
-                                name: "owner name",
-                                avatar: "images/proj1.jpg"
-                            }
-                        },
-
-                        {
-                            category: "Art",
-                            name: "my project name2",
-                            content: "this is another content of new project",
-                            image: "images/avatar.jpg",
-                            owner: {
-                                name: "owner name2",
-                                avatar: "images/proj1.jpg"
-                            }
-                        },
-
-                        {
-                            category: "Art",
-                            name: "racxa project name2",
-                            content: "this is another content of new project",
-                            image: "images/avatar.jpg",
-                            owner: {
-                                name: "owner name2",
-                                avatar: "images/proj1.jpg"
-                            }
-                        }
-                    ]
-                };
                 updateContent(files.explore[1], (projectListTempl)=> {
-                        // sendRequest("/projectsList", function(view) {
+                        server.sendRequest("/projectsList", function(view) {
                             contents[files.explore[0]].data = view;
+                            console.log(view);
                             setContent(Mustache.render(data, view, {
                                 project_list: projectListTempl
                             }));
                             exploreFn();
-                        // });
+                        });
                 });
             });
         },
@@ -117,6 +98,7 @@ router
         'startproject': function() {
             updateContent("startproject.html", function(data) {
                 setContent(data);
+                startProjectFn();
             });
         },
         'profsettings': function() {
