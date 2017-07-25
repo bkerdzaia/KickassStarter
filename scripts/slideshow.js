@@ -50,3 +50,10 @@ var exploreFn = function() {
 
 
 /* end functions for explore */
+
+
+var startProjectFn = () => {
+    server.sendRequest('userId', function(res) {
+        document.getElementById('userId').value = res;
+    });
+};
