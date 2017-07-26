@@ -70,9 +70,10 @@ router
             updateContent("./htmls/profile.html", function(data) {
 
                 console.log(params.id);
-                server.sendJSONRequest('profile', {"userId": params.id}, function(usr){
+                server.sendJSONRequest('profile', {"userId": params.id}, function(user){
+                    console.log('prof:',user);
                     setContent(data);
-                    projectpage(data);
+                    projectpage(user);
                 });
             });
         },
