@@ -80,6 +80,7 @@ main {
     margin-right: 8%;
     margin-top: 20px;
     margin-bottom: 20px;
+    float: left;
 }
 
 
@@ -403,20 +404,20 @@ main {
 .projdivv {
     margin-left: 200px;
     float: left;
-    width: 60%
+    width: 60%;
 }
 
 .projdivv img{
-    width: 70%
+    width: 70%;
 }
 
 .subprdiv {
     margin-top: 20px;
-    margin-bottom: 40px
+    margin-bottom: 40px;
 }
 
 .proj1 {
     width: 20%;
     margin-top: 30px;
-    float: left
+    float: left;
 }
