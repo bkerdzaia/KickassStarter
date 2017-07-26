@@ -13,6 +13,7 @@ var Project = mongoose.model('Project');
 mongoose.Promise = global.Promise;
 app.use('/', express.static(__dirname + '/../'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/../index.html'));
@@ -115,7 +116,7 @@ app.post('/projectAdd', function (req, res) {
 });
 
 app.get('/projectsList', function (req, res) {
-    Project.find(async function (err, projectlist) {
+    Project.find( function (err, projectlist) {
         if(err || !projectlist) console.log("Can't get projects list");
         else{
             var projectsjson = {
@@ -124,7 +125,7 @@ app.get('/projectsList', function (req, res) {
             for(var i=0; i<projectlist.length; i++){
                 var proj = projectlist[i];
                 var uid = proj.author;
-                await User.find({_id: uid}, function (err, usr) {
+                 User.find({_id: uid}, function (err, usr) {
                     if(err || !usr || usr===[]) console.log("can't get user");
                     else{
                         projectsjson.projectlists.push({
@@ -147,7 +148,7 @@ app.get('/projectsList', function (req, res) {
 
 });
 
-app.get('/profile', function (req, res) {
+app.post('/profile', function (req, res) {
     var uid = req.body.userId;
     User.find({_id: uid}, function(err, usr){
         if(err || !usr) res.send("invalid userId", 404);

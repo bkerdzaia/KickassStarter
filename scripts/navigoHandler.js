@@ -20,9 +20,9 @@ class Server {
         request.send();
     }
 
-    sendJSONRequest(url, jsonData, resultFn) {
+    sendJSONRequest(url, data, resultFn) {
         var request = new XMLHttpRequest();
-        request.open('GET', url, true);
+        request.open('POST', url, true);
         request.setRequestHeader("Content-Type", "application/json");
 
         request.onload = function() {
@@ -38,7 +38,7 @@ class Server {
             // There was a connection error of some sort
         };
 
-        request.send(jsonData);
+        request.send(JSON.stringify(data));
     }
 }
 
