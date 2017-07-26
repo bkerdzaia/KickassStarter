@@ -4,6 +4,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var path = require('path');
 var bodyParser = require('body-parser');
+const async = require("async");
 
 var app = express();
 var User = mongoose.model('User');
@@ -114,35 +115,32 @@ app.post('/projectAdd', function (req, res) {
 });
 
 app.get('/projectsList', function (req, res) {
-
-    Project.find(function (err, projectlist) {
+    Project.find(async function (err, projectlist) {
         if(err || !projectlist) console.log("Can't get projects list");
         else{
             var projectsjson = {
                 projectlists : []
             };
-
             for(var i=0; i<projectlist.length; i++){
                 var proj = projectlist[i];
                 var uid = proj.author;
-                User.find({_id: uid}, function (err, usr) {
+                await User.find({_id: uid}, function (err, usr) {
                     if(err || !usr || usr===[]) console.log("can't get user");
                     else{
                         projectsjson.projectlists.push({
                             category: proj.category,
                             name: proj.name,
-                            content: proj.info,
+                            content: proj.Info,
                             image: proj.photo,
                             owner: {
                                 uId: uid,
-                                name: usr.name,
-                                avatar: usr.photo
+                                name: usr[0].name,
+                                avatar: usr[0].photo
                             }
                         });
                     }
                 });
             }
-
             res.send(projectsjson);
         }
     });
@@ -161,6 +159,7 @@ app.get('/profile', function (req, res) {
 
 app.get('/project', function (req, res) {
     var prId = req.body.projectId;
+    console.log(prId);
     Project.find({_id: prId}, function (err, project) {
         if(err || !project) res.send("invalid projectID", 404);
         else{
@@ -169,9 +168,9 @@ app.get('/project', function (req, res) {
                 author: String,
                 cofounders: []
             };
-            projectjson.project = project;
-            projectjson.author = project.author;
-            var cofounderlist = project.cofounders;
+            projectjson.project = project[0];
+            projectjson.author = project[0].author;
+            var cofounderlist = project[0].cofounders;
             for(var i=0; i<cofounderlist.length; i++){
                 var coId = cofounderlist[i];
                 User.find({_id: coId}, function (err, usr) {
@@ -179,7 +178,7 @@ app.get('/project', function (req, res) {
                     else{
                         projectjson.cofounders.push({
                             cofounderId: coId,
-                            cofounderName: usr.name
+                            cofounderName: usr[0].name
                         });
                     }
                 });
