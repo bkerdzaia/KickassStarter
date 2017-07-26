@@ -67,7 +67,7 @@ function updateContent(filename, onLoadFn) {
 router
     .on({
         'profile/:id': function(params) {
-            updateContent("profile.html", function(data) {
+            updateContent("./htmls/profile.html", function(data) {
 
                 console.log(params.id);
                 server.sendJSONRequest('profile', {"userId": params.id}, function(usr){
@@ -91,36 +91,37 @@ router
             });
         },
         'login': function() {
-            updateContent("login.html", function(data) {
+            updateContent("./htmls/login.html", function(data) {
                 setContent(data);
             });
         },
         'signup': function() {
-            updateContent("signup.html", function(data) {
+            updateContent("./htmls/signup.html", function(data) {
                 setContent(data);
             });
         },
         'startproject': function() {
-            updateContent("startproject.html", function(data) {
+            updateContent("./htmls/startproject.html", function(data) {
                 setContent(data);
                 startProjectFn();
             });
         },
         'profsettings': function() {
-            updateContent("profile-settings.html", function(data) {
+            updateContent("./htmls/profile-settings.html", function(data) {
                 setContent(data);
                 profileSettingsFn();
             });
         },
         'project': function() {
-            updateContent("project.html", function(data) {
+            updateContent("./htmls/project.html", function(data) {
                 setContent(data);
                 projectpage(data);
             });
         },
         '*': function() {
-            console.log('disp home');
-            display('home');
+            updateContent("./htmls/home.html", function(data) {
+                setContent(data);
+            });
         }
     });
 
@@ -129,40 +130,4 @@ router.resolve();
 function setContent(contentHtml) {
     var displayContent = document.getElementById('content');
     displayContent.innerHTML = contentHtml;
-}
-
-function display(path) {
-    if (path === 'home') {
-        setContent(`
-            <div class="picSliderFrame">
-                <div class = "picSFImgs">
-                    <img class="mySlides" src="./images/sl3.jpg" style="display:block;">
-                    <img class="mySlides" src="./images/sl1.jpg" style="display:none;">
-                    <img class="mySlides" src="./images/giphy.gif" style="display:none;">
-                </div>
-                <div class="center">
-                    <button class="button" onclick="plusDivs(1)"><span>Next </span></button>
-                </div>
-                </div>
-                <div class="border"></div>
-                <div class="mfunded">
-                    <a><h1>Invested & Started Businesses</h1></a>
-                    <div class="project_main">
-                        <a data-navigo><h3>Project Description & Title & ...</h3></a>
-                        <a>
-                            <img src="./images/proj1.jpg">
-                        </a>
-                        <p>This SHit is project description</p>
-                    </div>
-                    <div class="project_main">
-                        <a data-navigo><h3>Project Description & Title & ...</h3></a>
-                        <a>
-                            <img src="./images/proj1.jpg">
-                        </a>
-                        <p>This SHit is project description</p>
-                    </div>
-                </div>
-            </div>
-            <div class="border" style="float: left"></div>`);
-    }
 }
