@@ -375,6 +375,12 @@ main {
     margin-left: 40%;
 }
 
+#start_project{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 #start_project h1{
     color: green;
     margin-left: 200px;
