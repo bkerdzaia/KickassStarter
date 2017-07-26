@@ -1,0 +1,36 @@
+
+<form action="projectAdd" method="post" name="start_project" id="start_project">
+    <h1>Project Name goes here:</h1>
+    <input type="text" name="name" required>
+
+    <h1>Photo:</h1>
+    <input type="file" name="image" accept="image/*" required>
+
+    <h1>Description of project goes here:</h1>
+    <textarea name="description" required></textarea>
+
+    <h1>Amount of shares: (1-100%):</h1>
+    <input type="number" min="1" max="100" name="sharesPercenage" required></textarea> <br>
+
+    <h1>Whole information about your project goes here:</h1>
+    <textarea name="content" required></textarea>
+
+    <h1>Mark your category:</h1>
+
+    <input type="radio" name="category" value="art" checked="checked"> Art <br>
+    <input type="radio" name="category" value="food"> Food <br>
+    <input type="radio" name="category" value="tech"> Tech <br>
+    <input type="radio" name="category" value="finance"> Finance <br>
+
+    <h1>Choose project ending date (standard project length 2 months):</h1>
+    <input type="date" name="endDate" min="" max="" required> <br>
+
+    <h1>Target money (in USD $):</h1>
+    <input type="number" name="money" min="1" required></textarea> <br>
+
+    <input type="hidden" name="userId" id="userId" />
+
+    <button id="start_button">
+        Start a Project
+    </button>
+</form>

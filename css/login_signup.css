@@ -28,6 +28,7 @@
 	clear: both;
 }
 
+/*todo*/
 #wrapper {
 	margin: 0px auto;
 	width: 540px;
@@ -73,13 +74,13 @@
 	border: 0 solid #178bb6;
 	border-radius: 8px;
 	background: #3b5998;
-	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	color: #ffffff;
 	text-decoration: none;
 	margin-right: 10px;
 }
 
+/*todo*/
 .facebook:before {
 	content: "\0000a0";
 	display: inline-block;
@@ -111,6 +112,7 @@
 	width: 500px;
 }
 
+/*todo*/
 .forms input {
 	border: 1px solid #d9d9d9 !important;
 	color: #bebebe;
@@ -122,21 +124,25 @@
 	margin-bottom: 15px;
 }
 
+/*todo*/
 .forms #username {
 	background: url("http://i.imgur.com/n6engUt.png") no-repeat 10px 5px;
 	border-right: 1px solid #f1f1f1;
 }
 
+/*todo*/
 .forms #mail {
 	background: url("http://i.imgur.com/xCWr97f.png") no-repeat 10px 10px;
 	border-right: 1px solid #f1f1f1;
 }
 
+/*todo*/
 .forms #password {
 	background: url("http://i.imgur.com/69UwNcl.png") no-repeat 10px 5px;
 	border-right: 1px solid #f1f1f1;
 }
 
+/*todo*/
 .log-in-acc {
 	display: inline-block;
 	text-align: center;
@@ -149,7 +155,6 @@
 	to(#e77e33));
 	background: -moz-linear-gradient(top, #e77e33, #e77e33);
 	background: linear-gradient(to bottom, #e77e33, #e77e33);
-	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	color: #ffffff;
 	text-decoration: none;
@@ -158,6 +163,7 @@
 	margin-top: 20px;
 }
 
+/*todo*/
 .log-in-acc:after {
 	content: "\0000a0";
 	display: inline-block;
@@ -179,6 +185,7 @@
 	border-radius: 0 8px 8px 0;
 }
 
+/*todo*/
 .create-acc {
 	display: inline-block;
 	text-align: center;
@@ -191,7 +198,6 @@
 	to(#e77e33));
 	background: -moz-linear-gradient(top, #e77e33, #e77e33);
 	background: linear-gradient(to bottom, #e77e33, #e77e33);
-	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	color: #ffffff;
 	text-decoration: none;
@@ -199,6 +205,7 @@
 	margin-top: 20px;
 }
 
+/*todo*/
 .create-acc:after {
 	content: "\0000a0";
 	display: inline-block;
