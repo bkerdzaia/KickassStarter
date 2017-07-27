@@ -157,7 +157,31 @@ app.post('/profile', function (req, res) {
     User.find({_id: uid}, function(err, usr){
         if(err || !usr) res.send("invalid userId", 404);
         else{
-            res.send(usr);
+            var userjson = {
+                user: User,
+                backedlist: [],
+                createdlist: []
+            };
+            userjson.user = usr[0];
+            var bakedproj = usr[0].backedProjects;
+            for(var i=0; i<bakedproj.length; i++){
+                Project.find({_id: bakedproj[i]}, function (err, proj) {
+                    if(err || !proj.length) console.log("can't get backed project");
+                    else {
+                        userjson.backedlist.push(proj[0]);
+                    }
+                })
+            }
+            var createdproj = usr[0].backedProjects;
+            for(var i=0; i<createdproj.length; i++){
+                Project.find({_id: createdproj[i]}, function (err, proj) {
+                    if(err || !proj.length) console.log("can't get created project");
+                    else {
+                        userjson.createdlist.push(proj[0]);
+                    }
+                })
+            }
+            res.send(userjson);
         }
     });
 });
