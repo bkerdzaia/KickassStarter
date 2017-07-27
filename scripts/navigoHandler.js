@@ -111,7 +111,7 @@ router
                 profileSettingsFn();
             });
         },
-        'project': function() {
+        'project/:id': function() {
             updateContent("./htmls/project.html", function(data) {
                 setContent(data);
                 projectpage(data);
