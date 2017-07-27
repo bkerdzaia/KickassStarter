@@ -244,15 +244,17 @@ app.post('/changePassword', function (req, res) {
 });
 
 app.post('/updateProfile', function (req, res) {
-    if(req.body.length){
-        console.log(req.body);
+    if(req.body){
         if(req.body.Name){
-           user.name = req.body.Name;
+           user.username = req.body.Name;
         }
         if(req.body.Email){
             user.email = req.body.Email;
             user._id = toHex(user.email);
         }
+        user.save(function (err) {
+            if(err) console.log("can't update profile");
+        })
     }
     res.send(null);
 });
