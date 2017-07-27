@@ -5,9 +5,9 @@
     </div>
     <div class="product-info">
         <div class="product-text">
-            <a class="product-category" href="#">{{category}}</a>
+            <a class="product-category" >{{category}}</a>
             <div class="product-name">
-                <a class="product-name-link" href="#">{{name}}</a>
+                <a class="product-name-link" href="#/project{{projectId}}">{{name}}</a>
                 {{content}}
             </div>
 
@@ -15,7 +15,7 @@
                 <img class="product-owner-avatar" src="{{owner.avatar}}">
                 <div class="product-owner-content">
                     <span class="card-color">by</span>
-                    <a class="product-owner-name" href="#">{{owner.name}}</a>
+                    <a class="product-owner-name" href="#/profile/{{owner.uId}}">{{owner.name}}</a>
                 </div>
             </div>
         </div>

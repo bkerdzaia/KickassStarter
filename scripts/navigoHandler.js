@@ -68,8 +68,6 @@ router
     .on({
         'profile/:id': function(params) {
             updateContent("./htmls/profile.html", function(data) {
-
-                console.log(params.id);
                 server.sendJSONRequest('profile', {"userId": params.id}, function(user){
                     console.log('prof:',user);
                     setContent(data);
@@ -80,14 +78,24 @@ router
         'explore': function() {
             updateContent(files.explore[0], function(data) {
                 updateContent(files.explore[1], (projectListTempl)=> {
-                        server.sendRequest("/projectsList", function(view) {
+                        // server.sendRequest("/projectsList", function(view) {
+
+                        var view = {"projectsList":
+                        [{"projectId":"323031372d372d3236","category":"tech","name":"bla",
+                        "content":"blu","image":"20197119_1967053106860020_257543445_n.jpg"
+                        ,"owner":{"uId":"62616475726140676d61696c2e636f6d","name":"badura",
+                        "avatar":"../images/avatar.jpg"}},
+                        {"projectId":"323031372d372d3237","category":"tech","name":"ble",
+                        "content":"blo","image":"20196804_1967053103526687_556204312_n.jpg",
+                        "owner":{"uId":"62616475726140676d61696c2e636f6d","name":"badura",
+                        "avatar":"../images/avatar.jpg"}}]};
                             contents[files.explore[0]].data = view;
                             console.log(view);
                             setContent(Mustache.render(data, view, {
                                 project_list: projectListTempl
                             }));
                             exploreFn();
-                        });
+                        // });
                 });
             });
         },

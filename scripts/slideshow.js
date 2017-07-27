@@ -59,6 +59,13 @@ var exploreFn = function() {
             event.preventDefault();
         }
     });
+    // var categories = ['Food', 'Art', 'Tech', 'Finance'];
+    // categories.forEach((el) => {
+    //     var checkbox = document.getElementById(el);
+    //     checkbox.addEventListener('change', function(event) {
+    //         listFilesTo(id, value);
+    //     });
+    // });
 };
 
 
