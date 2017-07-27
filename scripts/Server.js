@@ -76,7 +76,7 @@ app.post('/login', function (req, res) {
 
 });
 
-app.post('/projectAdd', function (req, res) {
+app.post('/projectAdd', async function (req, res) {
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -96,7 +96,7 @@ app.post('/projectAdd', function (req, res) {
         numVisits: 0
     });
 
-    project.save(function (err) {
+    await project.save(function (err) {
         if(err)
             console.log("project saving error", err);
         else
@@ -106,7 +106,7 @@ app.post('/projectAdd', function (req, res) {
     User.find({_id: req.body.userId}, function (err, usr) {
         if(err) console.log("can't find author");
         else{
-            usr[0].createdProjects.push(toHex(date));
+            usr[0].createdProjects.push(project._id);
         }
 
         usr[0].save(function (err) {
@@ -175,14 +175,12 @@ app.post('/profile', function (req, res) {
             var createdproj = usr[0].createdProjects;
             for(var i=0; i<createdproj.length; i++){
                 await Project.find({_id: createdproj[i]}, function (err, proj) {
-                    console.log(createdproj[i]);
                     if(err || !proj.length) console.log("can't get created project");
                     else {
                         userjson.createdlist.push(proj[0]);
                     }
                 });
             }
-            console.log(userjson.createdlist);
             res.send(userjson);
         }
     });
