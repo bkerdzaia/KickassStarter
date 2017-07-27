@@ -81,8 +81,8 @@ router
         },
         'explore': function() {
             updateContent(files.explore[0], function(data) {
+                server.sendRequest("/projectsList", function(view) {
                 updateContent(files.explore[1], (projectListTempl)=> {
-                   server.sendRequest("/projectsList", function(view) {
                         view=JSON.parse(view);
                         contents[files.explore[0]].data = view;
                         setContent(Mustache.render(data, view, {
@@ -126,8 +126,12 @@ router
         },
         'profsettings': function() {
             updateContent("./htmls/profile-settings.html", function(data) {
-                setContent(data);
-                profileSettingsFn();
+                server.sendJSONRequest('profile', {userId: localStorage.getItem("userId")}, function(user){
+                    user=JSON.parse(user);
+                    console.log('prof:',user);
+                    setContent(data);
+                    profileSettingsFn();
+                });
             });
         },
         'project/:id': function(params) {
