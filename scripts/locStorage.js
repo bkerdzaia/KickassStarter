@@ -1,8 +1,8 @@
 function sendId(id) {
     document.getElementById("um_login").innerHTML = "Profile Settings";
-    document.getElementById("um_login").href = "profsettings";
+    document.getElementById("um_login").href = "#/profsettings";
     document.getElementById("um_sign").innerHTML = "Logout";
-    document.getElementById("um_sign").href = "logout";
+    document.getElementById("um_sign").href = "#/logout";
     document.getElementById("um_sign").addEventListener('click', function(event){
         server.sendRequest('logout', function(res){});
         document.getElementById('umenu').innerHTML = `
@@ -16,10 +16,10 @@ function sendId(id) {
             <a href="#/explore">
                 Explore
             </a>
-            <a id="um_login" href="login" data-navigo>
+            <a id="um_login" href="#/login">
                 Login
             </a>
-            <a id="um_sign" href="signup" data-navigo>
+            <a id="um_sign" href="#/signup">
                 Sign Up
             </a>
 
