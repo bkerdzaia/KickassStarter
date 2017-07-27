@@ -16,6 +16,8 @@ function sendId(id) {
             <a href="#/explore">
                 Explore
             </a>
+            <a id="um_login">
+            </a>
             <a id="um_login" href="#/login">
                 Login
             </a>
