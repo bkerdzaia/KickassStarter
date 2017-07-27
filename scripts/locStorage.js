@@ -49,7 +49,3 @@ if (!localStorage.getItem("userId")) {
 }
 
 console.log('userid', localStorage.getItem('userId'));
-
-server.sendJSONRequest('/profile', {userId: localStorage.getItem('userId')}, function(usr) {
-    console.log('user', usr);
-});
