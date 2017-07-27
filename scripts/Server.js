@@ -243,4 +243,18 @@ app.post('/changePassword', function (req, res) {
     res.redirect('/#/profsettings');
 });
 
+app.post('/updateProfile', function (req, res) {
+    if(req.body.length){
+        console.log(req.body);
+        if(req.body.Name){
+           user.name = req.body.Name;
+        }
+        if(req.body.Email){
+            user.email = req.body.Email;
+            user._id = toHex(user.email);
+        }
+    }
+    res.send(null);
+});
+
 app.listen(8080);
