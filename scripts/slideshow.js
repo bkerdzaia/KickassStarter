@@ -116,7 +116,7 @@ function projectpage(data) {
 
     var cont = "";
     for(var i = 0; i < data.cofounders.length; i++){
-        cont = cont + "<li><a href='#'>" + data.cofounders[i].cofounderName + "</a></li>";
+        cont = cont + "<li><a href='#/profile/" + data.cofounders[i].cofounderId + "'>" + data.cofounders[i].cofounderName + "</a></li>";
     }
     document.getElementById("ulinvestors").innerHTML = cont;
 
@@ -251,6 +251,6 @@ function savePencilChanges() {
 function profilepage(user) {
     document.getElementById("profName").innerText = user.user.username;
     document.getElementById("profemail").innerText = user.user.email;
-    document.getElementById("profPhoto").innerText = user.user.photo;
+    document.getElementById("profPhoto").src = user.user.photo;
 
 }
