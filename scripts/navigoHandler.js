@@ -80,14 +80,14 @@ router
         'explore': function() {
             updateContent(files.explore[0], function(data) {
                 updateContent(files.explore[1], (projectListTempl)=> {
-                        server.sendRequest("/projectsList", function(view) {
-                            contents[files.explore[0]].data = view;
-                            console.log(view);
-                            setContent(Mustache.render(data, view, {
-                                project_list: projectListTempl
-                            }));
-                            exploreFn();
-                        });
+                   server.sendRequest("/projectsList", function(view) {
+                        view=JSON.parse(view);
+                        contents[files.explore[0]].data = view;
+                        setContent(Mustache.render(data, view, {
+                            project_list: projectListTempl
+                        }));
+                        exploreFn();
+                    });
                 });
             });
         },
