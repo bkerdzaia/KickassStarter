@@ -259,8 +259,10 @@ app.post('/updateProfile', function (req, res) {
     res.send(null);
 });
 
-app.post('addbudget', function (req, res) {
+app.post('/addbudget', function (req, res) {
     Project.find({id: req.body.id}, function (err, proj) {
+        console.log(req.body.id);
+        console.log(user);
         if(err || !proj.length) console.log("invalid project id");
         else{
             project = proj[0];
