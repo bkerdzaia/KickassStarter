@@ -259,4 +259,23 @@ app.post('/updateProfile', function (req, res) {
     res.send(null);
 });
 
+app.post('addbudget', function (req, res) {
+    Project.find({id: req.body.id}, function (err, proj) {
+        if(err || !proj.length) console.log("invalid project id");
+        else{
+            project = proj[0];
+            project.cofounders.push({id: user._id, money: req.body.fuli});
+            project.Budget = project.Budget + req.body.fuli;
+            project.save(function (err) {
+                if(err) console.log("can't back project");
+            });
+
+            user.backedProjects.push(req.body.id);
+            user.save(function (err) {
+                if(err) console.log("can't add backed project in user");
+            });
+        }
+    })
+});
+
 app.listen(8080);
