@@ -197,13 +197,13 @@ app.post('/project', function (req, res) {
                 cofounders: []
             };
             projectjson.project = project[0];
-            projectjson.author = project[0].author;
             var cofounderlist = project[0].cofounders;
             for(var i=0; i<cofounderlist.length; i++){
                 var coId = cofounderlist[i];
                 User.find({_id: coId}, function (err, usr) {
                     if(err || !usr) console.log("no user apeared");
                     else{
+                        projectjson.author = usr[0].username;
                         projectjson.cofounders.push({
                             cofounderId: coId,
                             cofounderName: usr[0].name
@@ -230,8 +230,12 @@ app.get('/logout', function (req, res) {
 });
 
 app.post('/changePassword', function (req, res) {
-    console.log(req.body);
-    user.password = req.body.password;
+    if(user.password === req.body.currentPassword){
+        console.log(user);
+        user.password = req.body.newPassword;
+
+    }
+    res.redirect('/#/profsettings');
 });
 
 app.listen(8080);
