@@ -4,7 +4,8 @@
     <input type="text" name="name" required>
 
     <h1>Photo:</h1>
-    <input type="file" name="image" accept="image/*" required>
+    <input type="file" accept="image/*" onchange="changeProjectImage(this,'imageValue');" required>
+    <input type="hidden" name="image" id="imageValue" >
 
     <h1>Description of project goes here:</h1>
     <textarea name="description" required></textarea>
@@ -17,10 +18,10 @@
 
     <h1>Mark your category:</h1>
 
-    <input type="radio" name="category" value="art" checked="checked"> Art <br>
-    <input type="radio" name="category" value="food"> Food <br>
-    <input type="radio" name="category" value="tech"> Tech <br>
-    <input type="radio" name="category" value="finance"> Finance <br>
+    <input type="radio" name="category" value="Art" checked="checked"> Art <br>
+    <input type="radio" name="category" value="Food"> Food <br>
+    <input type="radio" name="category" value="Tech"> Tech <br>
+    <input type="radio" name="category" value="Finance"> Finance <br>
 
     <h1>Choose project ending date (standard project length 2 months):</h1>
     <input type="date" name="endDate" min="" max="" required> <br>

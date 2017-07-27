@@ -74,6 +74,17 @@ var startProjectFn = () => {
     document.getElementById('userId').value = localStorage.getItem('userId');
 };
 
+var changeProjectImage = (input, id) => {
+    var file = input.files[0];
+    var reader  = new FileReader();
+    reader.onloadend = () => {
+        document.getElementById(id).value = reader.result;
+    };
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+};
+
 
 
 /*this function does all the stuff about project page*/

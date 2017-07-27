@@ -8,7 +8,6 @@ class Server {
             if (request.status >= 200 && request.status < 400) {
                 // Success!
                 resultFn(request.responseText);
-//            resultFn(JSON.parse(request.responseText));
             }
 
         };
@@ -29,7 +28,6 @@ class Server {
             if (request.status >= 200 && request.status < 400) {
                 // Success!
                 resultFn(request.responseText);
-//            resultFn(JSON.parse(request.responseText));
             }
 
         };
