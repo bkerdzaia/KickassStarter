@@ -73,9 +73,9 @@ router
         'profile/:id': function(params) {
             updateContent("./htmls/profile.html", function(data) {
                 server.sendJSONRequest('profile', {"userId": params.id}, function(user){
-                    console.log('prof:',user);
+                    console.log('prof:',JSON.parse(user));
                     setContent(data);
-                    projectpage(user);
+                    profilepage(JSON.parse(user));
                 });
             });
         },

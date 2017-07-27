@@ -249,9 +249,9 @@ function savePencilChanges() {
 }
 
 /*this function does all the stuff about profile page*/
-function projectpage(data) {
-    document.getElementById("profName").innerText = data.user.name;
-    document.getElementById("profemail").innerText = data.user.email;
-    document.getElementById("profPhoto").innerText = data.project.photo;
+function profilepage(user) {
+    document.getElementById("profName").innerText = user.user.username;
+    document.getElementById("profemail").innerText = user.user.email;
+    document.getElementById("profPhoto").innerText = user.user.photo;
 
 }
