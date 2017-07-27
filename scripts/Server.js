@@ -154,7 +154,7 @@ app.get('/projectsList', function (req, res) {
 
 app.post('/profile', function (req, res) {
     var uid = req.body.userId;
-    User.find({_id: uid}, function(err, usr){
+    User.find({_id: uid}, async function(err, usr){
         if(err || !usr) res.send("invalid userId", 404);
         else{
             var userjson = {
@@ -172,21 +172,21 @@ app.post('/profile', function (req, res) {
                     }
                 })
             }
-            var createdproj = usr[0].backedProjects;
+            var createdproj = usr[0].createdProjects;
             for(var i=0; i<createdproj.length; i++){
                 Project.find({_id: createdproj[i]}, function (err, proj) {
                     if(err || !proj.length) console.log("can't get created project");
                     else {
                         userjson.createdlist.push(proj[0]);
                     }
-                })
+                });
             }
             res.send(userjson);
         }
     });
 });
 
-app.get('/project', function (req, res) {
+app.post('/project', function (req, res) {
     var prId = req.body.projectId;
     Project.find({_id: prId}, function (err, project) {
         if(err || !project) res.send("invalid projectID", 404);
