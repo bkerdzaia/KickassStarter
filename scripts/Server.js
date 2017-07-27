@@ -175,12 +175,14 @@ app.post('/profile', function (req, res) {
             var createdproj = usr[0].createdProjects;
             for(var i=0; i<createdproj.length; i++){
                 await Project.find({_id: createdproj[i]}, function (err, proj) {
+                    console.log(createdproj[i]);
                     if(err || !proj.length) console.log("can't get created project");
                     else {
                         userjson.createdlist.push(proj[0]);
                     }
                 });
             }
+            console.log(userjson.createdlist);
             res.send(userjson);
         }
     });
