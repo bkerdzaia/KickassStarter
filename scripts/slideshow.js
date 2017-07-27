@@ -66,23 +66,17 @@ var exploreFn = function() {
     categories.forEach((el) => {
         var checkbox = document.getElementById(el);
         checkbox.addEventListener('change', function(event) {
-            console.log('change',el);
             listFilesTo('content_list', document.getElementById('search').value);
         });
     });
-    console.log('done');
 };
 
 var exploreCheckCategory = (category) => {
-    console.log('start');
-    setTimeout(function(){
-        var elem = document.getElementById(category);
-        console.log(elem);
-        if (elem) {
-            elem.checked =  "checked";
-            // elem.setAttribute("checked", "true");
-        }
-    }, 2000);
+    var elem = document.getElementById(category);
+    if (elem) {
+        elem.checked =  true;
+        listFilesTo('content_list', document.getElementById('search').value);
+    }
 };
 
 /* end functions for explore */

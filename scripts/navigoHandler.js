@@ -80,7 +80,6 @@ router
             });
         },
         'explore': function() {
-            console.log('explore');
             updateContent(files.explore[0], function(data) {
                 updateContent(files.explore[1], (projectListTempl)=> {
                    server.sendRequest("/projectsList", function(view) {
@@ -95,7 +94,6 @@ router
             });
         },
         'explore/:category': function(params) {
-            console.log('explore',params.category);
             updateContent(files.explore[0], function(data) {
                 updateContent(files.explore[1], (projectListTempl)=> {
                    server.sendRequest("/projectsList", function(view) {
