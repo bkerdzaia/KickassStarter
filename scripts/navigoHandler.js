@@ -125,11 +125,10 @@ router
             });
         },
         'profsettings': function() {
-            updateContent("./htmls/profile-settings.html", function(data) {
+            updateContent("./htmls/profile-settings.mustache", function(data) {
                 server.sendJSONRequest('profile', {userId: localStorage.getItem("userId")}, function(user){
                     user=JSON.parse(user);
-                    console.log('prof:',user);
-                    setContent(data);
+                    setContent(Mustache.render(data, user.user));
                     profileSettingsFn();
                 });
             });
