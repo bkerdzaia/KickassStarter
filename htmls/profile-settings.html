@@ -48,14 +48,14 @@
                     <h2 class="tabs-pan-name">Security Settings</h2>
                     <p class="g-mb-25">Reset your password, change verifications and so on.</p>
 
-                    <form>
+                    <form action="/changePassword" method="post">
 
                         <div class="row form-elem">
                             <label class="form-elem-label">Current Password</label>
                             <div class="form-elem-div">
                                 <div class="form-elem-input-parent">
 
-                                    <input class="form-elem-input" type="password" placeholder="Current Password" required>
+                                    <input class="form-elem-input" type="password" name="currentPassword" placeholder="Current Password" required>
 
                                     <div class="form-elem-input-icon">
                                         <i class="icon-lock"></i>
@@ -68,7 +68,7 @@
                             <div class="form-elem-div">
                                 <div class="form-elem-input-parent">
 
-                                    <input class="form-elem-input" type="password" placeholder="New Password" required>
+                                    <input class="form-elem-input" type="password" name="newPassword" placeholder="New Password" required>
 
                                     <div class="form-elem-input-icon">
                                         <i class="icon-lock"></i>
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="tabs-pan-buttons">
-                            <input type="submit" id="securitySave" class="tabs-pan-buttons-button tabs-pan-buttons-button-violet" value="Save Changes"/>
+                            <input type="submit" class="tabs-pan-buttons-button tabs-pan-buttons-button-violet" value="Save Changes"/>
                         </div>
                     </form>
                 </div>

@@ -135,9 +135,6 @@ var profileSettingsFn = () => {
       document.getElementById('editSave').addEventListener('click', function(event){
           savePencilChanges();
       });
-      document.getElementById('securitySave').addEventListener('click', function(event){
-          savePassword();
-      });
 };
 
 /* profile settings functions */
@@ -204,7 +201,6 @@ function editPencilListener() {
            inputNode.type = "text";
            inputNode.className = spanElem.className;
            inputNode.value = spanElem.innerText;
-        //    divElem.removeChild(spanElem);
            divElem.appendChild(inputNode);
            el.style.display = 'none';
            inputNode.focus();
@@ -240,6 +236,7 @@ function savePencilChanges() {
        el.style.display = 'block';
    }
    console.log(changeData);
+   server.sendJSONRequest('/updateProfile', changeData, function(res){});
 }
 
 /*this function does all the stuff about profile page*/
