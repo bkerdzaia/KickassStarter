@@ -179,10 +179,8 @@ app.post('/profile', function (req, res) {
                     else {
                         userjson.createdlist.push(proj[0]);
                     }
-                    console.log("1");
                 });
             }
-            console.log("2");
             res.send(userjson);
         }
     });
@@ -229,6 +227,11 @@ app.get('/userId', function (req, res) {
 
 app.get('/logout', function (req, res) {
     user = null;
+});
+
+app.post('/changePassword', function (req, res) {
+    console.log(req.body);
+    user.password = req.body.password;
 });
 
 app.listen(8080);
