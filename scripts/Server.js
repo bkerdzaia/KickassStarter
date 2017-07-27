@@ -236,9 +236,10 @@ app.get('/logout', function (req, res) {
 
 app.post('/changePassword', function (req, res) {
     if(user.password === req.body.currentPassword){
-        console.log(user);
         user.password = req.body.newPassword;
-        console.log(user);
+        user.save(function(err){
+           if(err) console.log("can't change password");
+        });
     }
     res.redirect('/#/profsettings');
 });
