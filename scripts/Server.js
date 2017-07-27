@@ -276,6 +276,7 @@ app.post('addbudget', function (req, res) {
             });
         }
     })
+    res.redirect('#/project/'+ req.body.id);
 });
 
 app.listen(8080);

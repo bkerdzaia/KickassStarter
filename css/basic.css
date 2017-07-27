@@ -361,7 +361,7 @@ main {
 /*PROJECT LIST ON MAIN PAGE END */
 
 
-#start_button {
+.start_button {
     transition: all 0.5s;
     cursor: pointer;
     border-radius: 4px;
@@ -374,23 +374,23 @@ main {
     width: 20%;
     margin-left: 40%;
 }
-#start_project {
+.start_project {
     margin-left: 10rem;
 }
 
-#start_project{
+.start_project{
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
 }
 
-#start_project h1{
+.start_project h1{
     color: green;
     margin-left: 200px;
 }
 
 
-#start_project textarea{
+.start_project textarea{
     color: purple;
     font-weight: 900;
     margin-top: 10px;
@@ -401,12 +401,12 @@ main {
     font-size: 18px;
 }
 
-#start_project input{
+.start_project input{
     color: purple;
     font-weight: 900;
 }
 
-#start_project input{
+.start_project input{
     margin-left: 200px;
 }
 

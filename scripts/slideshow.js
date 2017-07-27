@@ -258,6 +258,4 @@ function profilepage(user) {
         descriptions = descriptions + "<h4 class=\"project-name\">Project name: " + user.createdlist[i].name + "</h4> <h5 class=\"project-date\">Project due: " + user.createdlist[i].enddate.substring(0, 10) + "</h5>" + "<p class=\"list-item-body-article-parag\">Project Description : " + user.createdlist[i].description + "</p><br><br>";
     }
     document.getElementById("projdescs").innerHTML = descriptions;
-
-
 }

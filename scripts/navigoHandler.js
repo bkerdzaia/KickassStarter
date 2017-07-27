@@ -124,6 +124,16 @@ router
                 startProjectFn();
             });
         },
+        'investproj': function() {
+            updateContent("./htmls/investproj.html", function(data) {
+                setContent(data);
+            });
+        },
+        'addbudget': function() {
+            updateContent("./htmls/investproj.html", function(data) {
+                setContent(data);
+            });
+        },
         'profsettings': function() {
             updateContent("./htmls/profile-settings.mustache", function(data) {
                 server.sendJSONRequest('profile', {userId: localStorage.getItem("userId")}, function(user){
