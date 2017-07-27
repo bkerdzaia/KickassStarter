@@ -119,12 +119,12 @@ app.post('/projectAdd', function (req, res) {
 });
 
 app.get('/projectsList', function (req, res) {
+    var projectsjson = {
+        projectsList : []
+    };
     Project.find(async function (err, projectlist) {
         if(err || !projectlist.length) console.log("Can't get projects list");
         else{
-            var projectsjson = {
-                projectsList : []
-            };
             for(var i=0; i<projectlist.length; i++){
                 var proj = projectlist[i];
                 var uid = proj.author;
@@ -143,15 +143,13 @@ app.get('/projectsList', function (req, res) {
                                 avatar: usr[0].photo
                             }
                         });
-                        console.log(projectsjson.owner);
                     }
                 });
             }
-            console.log(projectsjson);
-            res.send(projectsjson);
+
         }
     });
-
+    res.send(projectsjson);
 });
 
 app.post('/profile', function (req, res) {
@@ -166,7 +164,6 @@ app.post('/profile', function (req, res) {
 
 app.get('/project', function (req, res) {
     var prId = req.body.projectId;
-    console.log(prId);
     Project.find({_id: prId}, function (err, project) {
         if(err || !project) res.send("invalid projectID", 404);
         else{
