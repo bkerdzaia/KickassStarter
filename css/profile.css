@@ -62,12 +62,11 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    width: 95%;
+    margin-left: 2.5%;
 }
 
 /*todo*/
@@ -173,6 +172,7 @@
 .profile-body {
     color: #555;
     margin-top: 2rem;
+    margin-bottom: 80px;
 }
 
 
@@ -183,6 +183,7 @@
     border: solid 1px transparent !important;
     border-color: #eee !important;
     float: left;
+    width: 20%;
 }
 
 /*todo*/
@@ -209,6 +210,7 @@
     background-color: #fff;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
+    width: 70%;
 }
 
 /*todo*/
@@ -399,6 +401,7 @@
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
+    margin-left: 25%;
 }
 
 /*todo*/
