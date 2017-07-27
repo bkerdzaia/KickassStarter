@@ -255,9 +255,15 @@ function profilepage(user) {
 
     var names = '';
     for(var i = 0; i < user.createdlist.length; i++){
-        names = names + "<h4 class=\"project-name\">Project Nae</h4> <h5 class=\"project-date\">2014-2015</h5>"
+        names = names + "<h4 class=\"project-name\">Project Name: " + user.createdlist[i].name + "</h4> <h5 class=\"project-date\">Project due: " + user.createdlist[i].enddate.substring(0, 10) + "</h5>";
     }
-    document.getElementById("crprojnames").innerHTML = user.user.photo;
+    document.getElementById("crprojnames").innerHTML = names;
+
+    var descriptions = '';
+    for(var i = 0; i < user.createdlist.length; i++){
+        descriptions = descriptions + "<p class=\"list-item-body-article-parag\">Project Description : " + user.createdlist[i].description + "</p>";
+    }
+    document.getElementById("projdescs").innerHTML = descriptions;
 
 
 }
