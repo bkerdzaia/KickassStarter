@@ -114,7 +114,7 @@ app.post('/projectAdd', function (req, res) {
         });
     });
 
-    res.redirect('/#/startproject');
+    res.redirect('/#/explore');
 
 });
 
