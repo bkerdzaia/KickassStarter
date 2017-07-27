@@ -81,7 +81,7 @@ app.post('/projectAdd', function (req, res) {
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     project = new Project({
-        _id: toHex(date),
+        _id: toHex(time),
         name: req.body.name,
         description: req.body.description,
         photo: req.body.image,
