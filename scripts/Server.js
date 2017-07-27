@@ -42,13 +42,16 @@ app.post('/signup', function (req, res) {
     });
 
     user.save(function (err) {
-        if(err)
+        if(err){
             console.log("user saving error", err);
-        else
+            res.redirect('/#/signup');
+        } else {
             console.log("user successfuly saved");
+            res.redirect('/');
+        }
     });
 
-    res.redirect('/');
+
 
 });
 
@@ -116,32 +119,35 @@ app.post('/projectAdd', function (req, res) {
 });
 
 app.get('/projectsList', function (req, res) {
-    Project.find( function (err, projectlist) {
-        if(err || !projectlist) console.log("Can't get projects list");
+    Project.find(async function (err, projectlist) {
+        if(err || !projectlist.length) console.log("Can't get projects list");
         else{
             var projectsjson = {
-                projectlists : []
+                projectsList : []
             };
             for(var i=0; i<projectlist.length; i++){
                 var proj = projectlist[i];
                 var uid = proj.author;
-                 User.find({_id: uid}, function (err, usr) {
-                    if(err || !usr || usr===[]) console.log("can't get user");
+                await User.find({_id: uid}, function (err, usr) {
+                    if(err || !usr.length) console.log("can't get user");
                     else{
-                        projectsjson.projectlists.push({
+                        projectsjson.projectsList.push({
+                            projectId: proj._id,
                             category: proj.category,
                             name: proj.name,
                             content: proj.Info,
                             image: proj.photo,
                             owner: {
                                 uId: uid,
-                                name: usr[0].name,
+                                name: usr[0].username,
                                 avatar: usr[0].photo
                             }
                         });
+                        console.log(projectsjson.owner);
                     }
                 });
             }
+            console.log(projectsjson);
             res.send(projectsjson);
         }
     });

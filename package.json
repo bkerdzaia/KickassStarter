@@ -1,0 +1,26 @@
+{
+  "name": "kickassstarter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bkerdzaia/KickassStarter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bkerdzaia/KickassStarter/issues"
+  },
+  "homepage": "https://github.com/bkerdzaia/KickassStarter#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bson": "^1.0.4",
+    "express": "^4.15.3",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.3"
+  }
+}
