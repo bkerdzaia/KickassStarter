@@ -99,12 +99,20 @@ var changeProjectImage = (input, id) => {
 
 /*this function does all the stuff about project page*/
 function projectpage(data) {
-    document.getElementById("fundedInfo").innerText = 100*(data.project.budget/data.project.targetMoney) + "% out of 100% is invested";
-    document.getElementById("fundedMoney").innerText = "Current investments: " +  data.project.money + " USD";
-    document.getElementById("projjjName").innerText = data.project.name;
-    document.getElementById("projjjDesc").innerText = data.project.description;
-    document.getElementById("shareInfo").innerText = data.project.sharesPercenage;
-    document.getElementById("fundrate").style.width = 100*(data.project.budget/data.project.targetMoney) +"%";
+    var fundpercc = 0;
+    if(!isNaN(100*(data.project.Budget/data.project.targetMoney))){
+        fundpercc = 100*(data.project.Budget/data.project.targetMoney);
+    }
+
+
+    document.getElementById("fundedInfo").innerText = fundpercc + "% out of 100% is invested";
+    document.getElementById("fundedMoney").innerText = "Current investments: " +  data.project.Budget + " USD";
+    document.getElementById("projjjName").innerText = "Project name: " + data.project.name;
+    document.getElementById("projjjDesc").innerText = "Project description: " + data.project.description;
+    document.getElementById("shareInfo").innerText = "Shares amount: " + data.project.sharesPercenage;
+    document.getElementById("fundrate").style.width = fundpercc +"%";
+    document.getElementById("projjjCreator").innerText = "Project Creator: " + data.author;
+    document.getElementById("projjjImg").src = data.project.photo;
 
     var cont = "";
     for(var i = 0; i < data.cofounders.length; i++){
