@@ -254,7 +254,7 @@ function profilepage(user) {
     document.getElementById("profPhoto").src = user.user.photo;
 
     var names = '';
-    for(var i = 0; i < user.user.createdlist.length; i++){
+    for(var i = 0; i < user.createdlist.length; i++){
         names = names + "<h4 class=\"project-name\">Project Nae</h4> <h5 class=\"project-date\">2014-2015</h5>"
     }
     document.getElementById("crprojnames").innerHTML = user.user.photo;
