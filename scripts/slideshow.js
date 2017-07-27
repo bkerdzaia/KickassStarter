@@ -1,4 +1,4 @@
-
+"use strict";
 var slideIndex = 1;
 //showDivs(slideIndex);
 

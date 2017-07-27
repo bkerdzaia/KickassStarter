@@ -1,4 +1,4 @@
-
+"use strict";
 class Server {
     sendRequest(url, resultFn) {
         var request = new XMLHttpRequest();
