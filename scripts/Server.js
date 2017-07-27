@@ -148,8 +148,8 @@ app.get('/projectsList', function (req, res) {
             }
 
         }
+        res.send(projectsjson);
     });
-    res.send(projectsjson);
 });
 
 app.post('/profile', function (req, res) {
