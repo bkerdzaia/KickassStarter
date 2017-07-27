@@ -197,16 +197,21 @@ app.post('/project', function (req, res) {
                 cofounders: []
             };
             projectjson.project = project[0];
+            User.find({_id: project[0].author}, function (err, usr) {
+                if(err) console.log("can't get user");
+                else{
+                    projectjson.author = usr[0].username;
+                }
+            });
             var cofounderlist = project[0].cofounders;
             for(var i=0; i<cofounderlist.length; i++){
                 var coId = cofounderlist[i];
                 User.find({_id: coId}, function (err, usr) {
                     if(err || !usr) console.log("no user apeared");
                     else{
-                        projectjson.author = usr[0].username;
                         projectjson.cofounders.push({
                             cofounderId: coId,
-                            cofounderName: usr[0].name
+                            cofounderName: usr[0].username
                         });
                     }
                 });
@@ -233,7 +238,7 @@ app.post('/changePassword', function (req, res) {
     if(user.password === req.body.currentPassword){
         console.log(user);
         user.password = req.body.newPassword;
-
+        console.log(user);
     }
     res.redirect('/#/profsettings');
 });
