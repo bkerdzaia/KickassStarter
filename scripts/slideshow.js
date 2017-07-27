@@ -42,13 +42,16 @@ function listFilesTo(id, value) {
     });
     data.projectsList = projectListData.projectsList
         .filter((el)=>{
-            if (!value || value === "") {
-                return true;
-            }
-            if (categories.length === 0) {
+            var checkName = () => {
+                if (!value || value === "") {
+                    return true;
+                }
                 return el.name.match(value);
+            };
+            if (categories.length === 0) {
+                return checkName();
             }
-            return el.name.match(value) && categories.indexOf(el.category)>=0;
+            return checkName() && categories.indexOf(el.category)>=0;
         });
     document.getElementById(id).innerHTML = Mustache.render(projectListTemplate, data);
 }
@@ -59,15 +62,28 @@ var exploreFn = function() {
             event.preventDefault();
         }
     });
-    // var categories = ['Food', 'Art', 'Tech', 'Finance'];
-    // categories.forEach((el) => {
-    //     var checkbox = document.getElementById(el);
-    //     checkbox.addEventListener('change', function(event) {
-    //         listFilesTo(id, value);
-    //     });
-    // });
+    var categories = ['Food', 'Art', 'Tech', 'Finance'];
+    categories.forEach((el) => {
+        var checkbox = document.getElementById(el);
+        checkbox.addEventListener('change', function(event) {
+            console.log('change',el);
+            listFilesTo('content_list', document.getElementById('search').value);
+        });
+    });
+    console.log('done');
 };
 
+var exploreCheckCategory = (category) => {
+    console.log('start');
+    setTimeout(function(){
+        var elem = document.getElementById(category);
+        console.log(elem);
+        if (elem) {
+            elem.checked =  "checked";
+            // elem.setAttribute("checked", "true");
+        }
+    }, 2000);
+};
 
 /* end functions for explore */
 var startProjectFn = () => {

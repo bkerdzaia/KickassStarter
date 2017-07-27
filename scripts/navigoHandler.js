@@ -45,7 +45,7 @@ var server = new Server();
 var Mustache;
 
 var files = {
-    explore: ["explore.mustache", "project_list.mustache"]
+    explore: ["./htmls/explore.mustache", "./htmls/project_list.mustache"]
 };
 
 var contents = {};
@@ -62,6 +62,12 @@ function updateContent(filename, onLoadFn) {
 }
 
 
+router.hooks({
+    after: (params) => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+});
+
 router
     .on({
         'profile/:id': function(params) {
@@ -74,6 +80,7 @@ router
             });
         },
         'explore': function() {
+            console.log('explore');
             updateContent(files.explore[0], function(data) {
                 updateContent(files.explore[1], (projectListTempl)=> {
                    server.sendRequest("/projectsList", function(view) {
@@ -83,6 +90,22 @@ router
                             project_list: projectListTempl
                         }));
                         exploreFn();
+                    });
+                });
+            });
+        },
+        'explore/:category': function(params) {
+            console.log('explore',params.category);
+            updateContent(files.explore[0], function(data) {
+                updateContent(files.explore[1], (projectListTempl)=> {
+                   server.sendRequest("/projectsList", function(view) {
+                        view=JSON.parse(view);
+                        contents[files.explore[0]].data = view;
+                        setContent(Mustache.render(data, view, {
+                            project_list: projectListTempl
+                        }));
+                        exploreFn();
+                        exploreCheckCategory(params.category);
                     });
                 });
             });
@@ -109,10 +132,14 @@ router
                 profileSettingsFn();
             });
         },
-        'project/:id': function() {
+        'project/:id': function(params) {
             updateContent("./htmls/project.html", function(data) {
-                setContent(data);
-                projectpage(data);
+                server.sendJSONRequest('/project', {projectId: params.id}, function(project){
+                    project = JSON.parse(project);
+                    console.log('project:',project);
+                    setContent(data);
+                    projectpage(project);
+                });
             });
         },
         '*': function() {
