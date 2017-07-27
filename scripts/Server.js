@@ -260,10 +260,8 @@ app.post('/updateProfile', function (req, res) {
 });
 
 app.post('/addbudget', function (req, res) {
-    Project.find({id: req.body.id}, function (err, proj) {
-        console.log(req.body.id);
-        console.log(user);
-        if(err || !proj.length) console.log("invalid project id");
+    Project.find({_id: req.body.id}, function (err, proj) {
+        if(err || !proj || !proj.length) console.log("invalid project id");
         else{
             project = proj[0];
             project.cofounders.push({id: user._id, money: req.body.fuli});
@@ -277,8 +275,8 @@ app.post('/addbudget', function (req, res) {
                 if(err) console.log("can't add backed project in user");
             });
         }
-    })
-    res.redirect('#/project/'+ req.body.id);
+    });
+    res.redirect('/#/startproject');
 });
 
 app.listen(8080);
