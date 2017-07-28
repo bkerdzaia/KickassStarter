@@ -101,16 +101,23 @@ var changeProjectImage = (input, id) => {
 function projectpage(data) {
     var fundpercc = 0;
     if(!isNaN(100*(data.project.Budget/data.project.targetMoney))){
-        fundpercc = 100*(data.project.Budget/data.project.targetMoney);
+        fundpercc = parseInt(100*(data.project.Budget/data.project.targetMoney));
     }
+
+    var fundrate = 0;
+    if(fundpercc > 100){
+        fundrate = 100;
+    }
+    fundrate = fundpercc;
 
 
     document.getElementById("fundedInfo").innerText = fundpercc + "% out of 100% is invested";
-    document.getElementById("fundedMoney").innerText = "Current investments: " +  data.project.Budget + " USD";
+    document.getElementById("fundedMoney").innerText = "Current investments: " +  data.project.Budget + "$";
     document.getElementById("projjjName").innerText = "Project name: " + data.project.name;
     document.getElementById("projjjDesc").innerText = "Project description: " + data.project.description;
     document.getElementById("shareInfo").innerText = "Shares amount: " + data.project.sharesPercenage;
-    document.getElementById("fundrate").style.width = fundpercc +"%";
+    document.getElementById("targetMoney").innerText = "Target money: " + data.project.targetMoney + "$";
+    document.getElementById("fundrate").style.width = fundrate +"%";
     document.getElementById("projjjCreator").innerText = "Project Creator: " + data.author;
     document.getElementById("projjjImg").src = data.project.photo;
 
@@ -259,3 +266,8 @@ function profilepage(user) {
     }
     document.getElementById("projdescs").innerHTML = descriptions;
 }
+
+// /* when investing */
+// var inVestProjFn = (data) => {
+//     document.getElementById('priddd').value = data.;
+// };

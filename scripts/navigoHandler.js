@@ -127,11 +127,7 @@ router
         'investproj': function() {
             updateContent("./htmls/investproj.html", function(data) {
                 setContent(data);
-            });
-        },
-        'addbudget': function() {
-            updateContent("./htmls/investproj.html", function(data) {
-                setContent(data);
+                inVestProjFn(data);
             });
         },
         'profsettings': function() {

@@ -118,6 +118,26 @@ app.post('/projectAdd', async function (req, res) {
 
 });
 
+app.post('/addbudget', function (req, res) {
+    Project.find({_id: req.body.id}, function (err, proj) {
+        if(err || !proj || !proj.length) console.log("invalid project id");
+        else{
+            project = proj[0];
+           // project.cofounders.push({money: req.body.fuli});
+            project.Budget = parseInt(project.Budget) + parseInt(req.body.fuli);
+            project.save(function (err) {
+                if(err) console.log("can't back project");
+            });
+
+            //user.backedProjects.push(req.body.id);
+            //user.save(function (err) {
+            //    if(err) console.log("can't add backed project in user");
+            //});
+        }
+    });
+    res.redirect('/#/project/' + req.body.id);
+});
+
 app.get('/projectsList', function (req, res) {
     var projectsjson = {
         projectsList : []
@@ -257,26 +277,6 @@ app.post('/updateProfile', function (req, res) {
         })
     }
     res.send(null);
-});
-
-app.post('/addbudget', function (req, res) {
-    Project.find({_id: req.body.id}, function (err, proj) {
-        if(err || !proj || !proj.length) console.log("invalid project id");
-        else{
-            project = proj[0];
-            project.cofounders.push({id: user._id, money: req.body.fuli});
-            project.Budget = project.Budget + req.body.fuli;
-            project.save(function (err) {
-                if(err) console.log("can't back project");
-            });
-
-            user.backedProjects.push(req.body.id);
-            user.save(function (err) {
-                if(err) console.log("can't add backed project in user");
-            });
-        }
-    });
-    res.redirect('/#/startproject');
 });
 
 app.listen(8080);
