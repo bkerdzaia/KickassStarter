@@ -123,16 +123,16 @@ app.post('/addbudget', function (req, res) {
         if(err || !proj || !proj.length) console.log("invalid project id");
         else{
             project = proj[0];
-           // project.cofounders.push({money: req.body.fuli});
+            project.cofounders.push({money: req.body.fuli});
             project.Budget = parseInt(project.Budget) + parseInt(req.body.fuli);
             project.save(function (err) {
                 if(err) console.log("can't back project");
             });
 
             //user.backedProjects.push(req.body.id);
-            //user.save(function (err) {
-            //    if(err) console.log("can't add backed project in user");
-            //});
+            // user.save(function (err) {
+            //     if(err) console.log("can't add backed project in user");
+            // });
         }
     });
     res.redirect('/#/project/' + req.body.id);

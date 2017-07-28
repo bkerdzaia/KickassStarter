@@ -107,8 +107,9 @@ function projectpage(data) {
     var fundrate = 0;
     if(fundpercc > 100){
         fundrate = 100;
+    } else {
+        fundrate = fundpercc;
     }
-    fundrate = fundpercc;
 
 
     document.getElementById("fundedInfo").innerText = fundpercc + "% out of 100% is invested";
@@ -122,11 +123,11 @@ function projectpage(data) {
     document.getElementById("projjjImg").src = data.project.photo;
     document.getElementById("invpp").href = "#/investproj/" + data.project._id;
 
-    var cont = "";
-    for(var i = 0; i < data.cofounders.length; i++){
-        cont = cont + "<li><a href='#/profile/" + data.cofounders[i].cofounderId + "'>" + data.cofounders[i].cofounderName + "</a></li>";
-    }
-    document.getElementById("ulinvestors").innerHTML = cont;
+    // var cont = "";
+    // for(var i = 0; i < data.cofounders.length; i++){
+    //     cont = cont + "<li><a href='#/profile/" + data.cofounders[i].cofounderId + "'>" + data.cofounders[i].cofounderName + "</a></li>";
+    // }
+    // document.getElementById("ulinvestors").innerHTML = cont;
 
 }
 
