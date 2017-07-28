@@ -120,6 +120,7 @@ function projectpage(data) {
     document.getElementById("fundrate").style.width = fundrate +"%";
     document.getElementById("projjjCreator").innerText = "Project Creator: " + data.author;
     document.getElementById("projjjImg").src = data.project.photo;
+    document.getElementById("invpp").href = "#/investproj/" + data.project._id;
 
     var cont = "";
     for(var i = 0; i < data.cofounders.length; i++){
@@ -265,6 +266,10 @@ function profilepage(user) {
         descriptions = descriptions + "<h4 class=\"project-name\">Project name: " + user.createdlist[i].name + "</h4> <h5 class=\"project-date\">Project due: " + user.createdlist[i].enddate.substring(0, 10) + "</h5>" + "<p class=\"list-item-body-article-parag\">Project Description : " + user.createdlist[i].description + "</p><br><br>";
     }
     document.getElementById("projdescs").innerHTML = descriptions;
+}
+
+function inVestProjFn(id){
+    document.getElementById("priddd").value = id;
 }
 
 // /* when investing */

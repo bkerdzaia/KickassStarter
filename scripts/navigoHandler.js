@@ -124,10 +124,10 @@ router
                 startProjectFn();
             });
         },
-        'investproj': function() {
+        'investproj/:id': function(params) {
             updateContent("./htmls/investproj.html", function(data) {
                 setContent(data);
-                inVestProjFn(data);
+                inVestProjFn(params.id);
             });
         },
         'profsettings': function() {
